@@ -1,12 +1,10 @@
-"use client";
-
 import { html, css } from "react-strict-dom";
+import { Greeting } from "@workshop/ui";
 
 export default function Home() {
   return (
-    <html.div data-layoutconformance="strict" style={styles.root}>
-      <html.h1 style={styles.title}>RSD on Next.js 16</html.h1>
-      <html.p style={styles.body}>Web target rendering with React Strict DOM.</html.p>
+    <html.div style={styles.root}>
+      <Greeting name="Workshop" />
     </html.div>
   );
 }
@@ -18,15 +16,5 @@ const styles = css.create({
     alignItems: "center",
     justifyContent: "center",
     minHeight: "100vh",
-    backgroundColor: "white",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "black",
-  },
-  body: {
-    marginBlockStart: 8,
-    color: "#333",
   },
 });

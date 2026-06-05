@@ -11,7 +11,7 @@ function getBabelLoader() {
 }
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["react-strict-dom"],
+  transpilePackages: ["react-strict-dom", "@workshop/ui"],
 
   turbopack: {
     rules: {
@@ -37,7 +37,7 @@ const nextConfig: NextConfig = {
       ...config.resolve.extensions,
     ];
     config.module.rules.push({
-      exclude: /node_modules(?!\/react-strict-dom)/,
+      exclude: /node_modules(?!\/(react-strict-dom|@workshop))/,
       test: /\.(js|jsx|ts|tsx)$/,
       use: [getBabelLoader()],
     });
