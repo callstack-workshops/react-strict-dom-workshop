@@ -1,45 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { html, css } from 'react-strict-dom';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+export default function App() {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <html.div data-layoutconformance="strict" style={styles.root}>
+      <html.div style={styles.card}>
+        <html.p style={styles.title}>React Strict DOM</html.p>
+        <html.p style={styles.subtitle}>Rendering natively via the shared API</html.p>
+      </html.div>
+    </html.div>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+const styles = css.create({
+  root: {
+    flexGrow: 1,
+    backgroundColor: '#0b1020',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  card: {
+    backgroundColor: '#1b2440',
+    borderRadius: 16,
+    paddingTop: 24,
+    paddingBottom: 24,
+    paddingLeft: 32,
+    paddingRight: 32,
+  },
+  title: {
+    color: '#e6ecff',
+    fontSize: 22,
+    fontWeight: '700',
+  },
+  subtitle: {
+    color: '#9fb0d9',
+    fontSize: 14,
+    marginTop: 8,
   },
 });
-
-export default App;
