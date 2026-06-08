@@ -23,9 +23,11 @@ const styles = css.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'black',
+    textAlign: 'center',
   },
   body: {
     marginBlockStart: 8,
     color: '#333',
+    textAlign: 'center',
   },
 });
