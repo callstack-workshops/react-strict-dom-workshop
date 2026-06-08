@@ -1,1 +1,11 @@
+packages:
+  - "apps/*"
+  - "screens/*"
+  - "features/*"
+  - "packages/*"
+  - "packages/*/*"
+
 autoInstallPeers: true
+onlyBuiltDependencies:
+  - "@swc/core"
+  - nx
