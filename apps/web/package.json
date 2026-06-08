@@ -1,0 +1,11 @@
+{
+  "name": "@workshop/web",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@ui/components": "workspace:*",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  }
+}

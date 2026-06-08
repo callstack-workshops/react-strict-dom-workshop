@@ -8,10 +8,14 @@
     "@nx/eslint": "22.7.5",
     "@nx/eslint-plugin": "22.7.5",
     "@nx/js": "22.7.5",
+    "@nx/next": "22.7.5",
     "@swc-node/register": "~1.11.1",
+    "@swc/cli": "~0.8.0",
     "@swc/core": "~1.15.5",
     "@swc/helpers": "~0.5.18",
     "@types/node": "20.19.9",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
     "eslint": "~8.57.0",
@@ -22,5 +26,9 @@
     "tslib": "^2.3.0",
     "typescript": "~5.9.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "next": "~16.2.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
 }
