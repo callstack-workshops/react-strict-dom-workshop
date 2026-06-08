@@ -1,13 +1,13 @@
 {
-  "name": "react-strict-dom-workshop",
+  "name": "@rsd-v2/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
   "private": true,
-  "version": "1.0.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "overrides": {
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+  "dependencies": {},
+  "devDependencies": {
+    "@nx/js": "22.7.5",
+    "@nx/workspace": "22.7.5",
+    "nx": "22.7.5"
   }
 }
