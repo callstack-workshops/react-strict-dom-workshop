@@ -11,8 +11,12 @@ export default function App() {
 
 const styles = css.create({
   screen: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
     display: 'flex',
-    flexGrow: 1,
     backgroundColor: '#f2f2f7',
     alignItems: 'center',
     justifyContent: 'center',
