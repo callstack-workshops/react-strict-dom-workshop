@@ -13,7 +13,7 @@ const config = {
       path.resolve(workspaceRoot, 'node_modules'),
     ],
     unstable_enablePackageExports: true,
-    unstable_conditionNames: ['react-native', '@workshop/source', 'require', 'import'],
+    unstable_conditionNames: ['react-native', '@workshop/source', 'require'],
     // Metro does not rewrite TypeScript NodeNext ".js" specifiers (which point at
     // .ts/.tsx source). On a failed resolution, retry with the extension stripped.
     resolveRequest: (context, moduleName, platform) => {
