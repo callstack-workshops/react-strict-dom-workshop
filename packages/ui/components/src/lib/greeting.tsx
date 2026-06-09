@@ -1,16 +1,18 @@
 import { css, html } from 'react-strict-dom';
+import { createI18n, type I18n } from '@core/i18n';
 
 export type GreetingProps = {
   name?: string;
+  i18n?: I18n;
 };
 
-export function Greeting({ name = 'world' }: GreetingProps) {
+export function Greeting({ name = 'world', i18n = createI18n('en') }: GreetingProps) {
   return (
     <html.div style={styles.container}>
-      <html.h1 style={styles.title}>Hello, {name}</html.h1>
-      <html.p style={styles.message}>
-        Rendered from @ui/components through React Strict DOM.
-      </html.p>
+      <html.h1 style={styles.title}>
+        {i18n.t('greeting.hello')}, {name}
+      </html.h1>
+      <html.p style={styles.message}>{i18n.t('greeting.subtitle')}</html.p>
     </html.div>
   );
 }
