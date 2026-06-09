@@ -48,5 +48,10 @@
   "homepage": "https://rockjs.dev",
   "bugs": "https://github.com/callstackincubator/rock/issues",
   "license": "MIT",
-  "author": "Callstack <incubator@callstack.com>"
+  "author": "Callstack <incubator@callstack.com>",
+  "nx": {
+    "tags": [
+      "type:app"
+    ]
+  }
 }
