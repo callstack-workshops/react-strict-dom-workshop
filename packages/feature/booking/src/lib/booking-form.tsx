@@ -4,6 +4,7 @@ import { colors, spacing } from '@ui/tokens/tokens.css';
 import {
   Button,
   Card,
+  DateField,
   InlineAlert,
   Stepper,
   TextAreaField,
@@ -92,12 +93,11 @@ export function BookingForm({ onSubmit }: BookingFormProps) {
         onChange={(v) => update('participants', v)}
         data-testid="booking-field-participants"
       />
-      <TextField
+      <DateField
         label="Date"
         id="booking-date"
         value={values.date}
         onChangeText={(v) => update('date', v)}
-        placeholder="YYYY-MM-DD"
         invalid={errors.date != null}
         data-testid="booking-field-date"
       />
