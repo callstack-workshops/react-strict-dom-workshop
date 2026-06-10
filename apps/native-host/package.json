@@ -13,7 +13,8 @@
     "react": "19.2.6",
     "react-native": "0.83.0",
     "@ui/components": "workspace:*",
-    "@core/i18n": "workspace:*"
+    "@core/i18n": "workspace:*",
+    "@feature/booking": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

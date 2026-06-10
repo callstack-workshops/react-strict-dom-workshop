@@ -7,10 +7,13 @@
   "exclude": ["**/node_modules", "**/Pods"],
   "references": [
     {
+      "path": "../../packages/ui/components"
+    },
+    {
       "path": "../../packages/core/i18n"
     },
     {
-      "path": "../../packages/ui/components"
+      "path": "../../packages/feature/booking"
     }
   ]
 }

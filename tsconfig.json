@@ -17,6 +17,9 @@
     },
     {
       "path": "./packages/ui/tokens"
+    },
+    {
+      "path": "./packages/feature/booking"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@ui/components",
+  "name": "@feature/booking",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -17,13 +17,13 @@
   },
   "nx": {
     "tags": [
-      "type:ui"
+      "type:feature"
     ]
   },
   "dependencies": {
     "react-strict-dom": "0.0.55",
     "tslib": "^2.3.0",
-    "@core/i18n": "workspace:*",
+    "@ui/components": "workspace:*",
     "@ui/tokens": "workspace:*",
     "react-native": "0.83.0"
   },

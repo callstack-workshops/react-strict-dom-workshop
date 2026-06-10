@@ -5,8 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  react: 19.2.6
-  react-dom: 19.2.6
   react-native: 0.83.0
 
 importers:
@@ -17,10 +15,10 @@ importers:
         specifier: ~16.2.6
         version: 16.2.6(@babel/core@7.29.7)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.100.0)
       react:
-        specifier: 19.2.6
+        specifier: ^19.0.0
         version: 19.2.6
       react-dom:
-        specifier: 19.2.6
+        specifier: ^19.0.0
         version: 19.2.6(react@19.2.6)
     devDependencies:
       '@nx/eslint':
@@ -89,6 +87,9 @@ importers:
       '@core/i18n':
         specifier: workspace:*
         version: link:../../packages/core/i18n
+      '@feature/booking':
+        specifier: workspace:*
+        version: link:../../packages/feature/booking
       '@ui/components':
         specifier: workspace:*
         version: link:../../packages/ui/components
@@ -168,6 +169,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@feature/booking':
+        specifier: workspace:*
+        version: link:../../packages/feature/booking
       '@ui/components':
         specifier: workspace:*
         version: link:../../packages/ui/components
@@ -193,8 +197,30 @@ importers:
   packages/core/i18n:
     dependencies:
       react:
-        specifier: 19.2.6
+        specifier: '*'
         version: 19.2.6
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+    devDependencies:
+      '@types/react':
+        specifier: 19.2.17
+        version: 19.2.17
+
+  packages/feature/booking:
+    dependencies:
+      '@ui/components':
+        specifier: workspace:*
+        version: link:../../ui/components
+      '@ui/tokens':
+        specifier: workspace:*
+        version: link:../../ui/tokens
+      react-native:
+        specifier: 0.83.0
+        version: 0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6)
+      react-strict-dom:
+        specifier: 0.0.55
+        version: 0.0.55(postcss@8.5.15)(react-dom@19.2.6(react@19.2.6))(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -211,6 +237,9 @@ importers:
       '@ui/tokens':
         specifier: workspace:*
         version: link:../tokens
+      react-native:
+        specifier: 0.83.0
+        version: 0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6)
       react-strict-dom:
         specifier: 0.0.55
         version: 0.0.55(postcss@8.5.15)(react-dom@19.2.6(react@19.2.6))(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
@@ -2207,7 +2236,7 @@ packages:
     engines: {node: '>= 20.19.4'}
     peerDependencies:
       '@types/react': ^19.2.0
-      react: 19.2.6
+      react: '*'
       react-native: 0.83.0
     peerDependenciesMeta:
       '@types/react':
@@ -2237,7 +2266,7 @@ packages:
   '@rock-js/welcome-screen@0.12.12':
     resolution: {integrity: sha512-Ie+JQSwRA6bsY2At+9aTQ0qzq3AJDfew6AoKW3M/bDoO8E2j+bVEyqlOKqzwj1yxaamrKkbcj+OaQALx4hlnMA==}
     peerDependencies:
-      react: 19.2.6
+      react: '*'
       react-native: 0.83.0
 
   '@rolldown/binding-android-arm64@1.0.3':
@@ -5943,8 +5972,8 @@ packages:
       '@opentelemetry/api': ^1.1.0
       '@playwright/test': ^1.51.1
       babel-plugin-react-compiler: '*'
-      react: 19.2.6
-      react-dom: 19.2.6
+      react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+      react-dom: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
       sass: ^1.3.0
     peerDependenciesMeta:
       '@opentelemetry/api':
@@ -6615,7 +6644,7 @@ packages:
   react-dom@19.2.6:
     resolution: {integrity: sha512-0prMI+hvBbPjsWnxDLxlCGyM8PN6UuWjEUCYmZhO67xIV9Xasa/r/vDnq+Xyq4Lo27g8QSbO5YzARu0D1Sps3g==}
     peerDependencies:
-      react: 19.2.6
+      react: ^19.2.6
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -6632,7 +6661,7 @@ packages:
     hasBin: true
     peerDependencies:
       '@types/react': ^19.1.1
-      react: 19.2.6
+      react: ^19.2.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -6645,14 +6674,14 @@ packages:
     resolution: {integrity: sha512-QrFkEPCC9RlcZx2RHbb5vtMthOo9ObcszSB0UWEm3zcmnRa8iP93q4N4RNIZvZ/eOE7ZlRnaQfpKqcH4vZVI4w==}
     engines: {node: '>=20.11.0'}
     peerDependencies:
-      react: 19.2.6
-      react-dom: 19.2.6
+      react: ^19.0.0
+      react-dom: ^19.0.0
       react-native: 0.83.0
 
   react-test-renderer@19.2.0:
     resolution: {integrity: sha512-zLCFMHFE9vy/w3AxO0zNxy6aAupnCuLSVOJYDe/Tp+ayGI1f2PLQsFVPANSD42gdSbmYx5oN+1VWDhcXtq7hAQ==}
     peerDependencies:
-      react: 19.2.6
+      react: ^19.2.0
 
   react@19.2.6:
     resolution: {integrity: sha512-sfWGGfavi0xr8Pg0sVsyHMAOziVYKgPLNrS7ig+ivMNb3wbCBw3KxtflsGBAwD3gYQlE/AEZsTLgToRrSCjb0Q==}
@@ -7320,7 +7349,7 @@ packages:
     peerDependencies:
       '@babel/core': '*'
       babel-plugin-macros: '*'
-      react: 19.2.6
+      react: '>= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0'
     peerDependenciesMeta:
       '@babel/core':
         optional: true
