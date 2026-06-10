@@ -5,6 +5,7 @@ export const colors = css.defineVars({
   bgCard: '#F4F4F5',
   textPrimary: '#18181B',
   textMuted: '#52525B',
+  textOnAction: '#FFFFFF',
   actionPrimary: '#0D9488',
   actionPrimaryHover: '#0F766E',
   critical: '#B91C1C',
