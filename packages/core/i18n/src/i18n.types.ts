@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'el' | 'pl' | 'de';
+export type Locale = 'en';
 
 export type TranslationKey = 'greeting.hello' | 'greeting.subtitle';
 
