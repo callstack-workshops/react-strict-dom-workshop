@@ -14,6 +14,9 @@
     },
     {
       "path": "./packages/core/i18n"
+    },
+    {
+      "path": "./packages/ui/tokens"
     }
   ]
 }

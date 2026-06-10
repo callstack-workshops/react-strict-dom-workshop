@@ -23,7 +23,8 @@
   "dependencies": {
     "react-strict-dom": "0.0.55",
     "tslib": "^2.3.0",
-    "@core/i18n": "workspace:*"
+    "@core/i18n": "workspace:*",
+    "@ui/tokens": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "19.2.17"

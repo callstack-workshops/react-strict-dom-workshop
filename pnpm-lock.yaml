@@ -180,6 +180,9 @@ importers:
       react-dom:
         specifier: 19.2.6
         version: 19.2.6(react@19.2.6)
+      react-strict-dom:
+        specifier: 0.0.55
+        version: 0.0.55(postcss@8.5.15)(react-dom@19.2.6(react@19.2.6))(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
 
   packages/core/core:
     dependencies:
@@ -205,6 +208,9 @@ importers:
       '@core/i18n':
         specifier: workspace:*
         version: link:../../core/i18n
+      '@ui/tokens':
+        specifier: workspace:*
+        version: link:../tokens
       react-strict-dom:
         specifier: 0.0.55
         version: 0.0.55(postcss@8.5.15)(react-dom@19.2.6(react@19.2.6))(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
@@ -215,6 +221,15 @@ importers:
       '@types/react':
         specifier: 19.2.17
         version: 19.2.17
+
+  packages/ui/tokens:
+    dependencies:
+      react-strict-dom:
+        specifier: 0.0.55
+        version: 0.0.55(postcss@8.5.15)(react-dom@19.2.6(react@19.2.6))(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
 
 packages:
 

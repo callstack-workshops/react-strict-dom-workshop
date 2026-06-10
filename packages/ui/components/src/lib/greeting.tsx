@@ -1,5 +1,6 @@
 import { css, html } from 'react-strict-dom';
 import { createI18n, type I18n } from '@core/i18n';
+import { colors } from '@ui/tokens/tokens.css';
 
 export type GreetingProps = {
   name?: string;
@@ -36,7 +37,7 @@ const styles = css.create({
     marginBlockEnd: 8,
   },
   message: {
-    color: '#9aa4d6',
+    color: colors.actionPrimary,
     fontSize: 16,
     textAlign: 'center',
   },

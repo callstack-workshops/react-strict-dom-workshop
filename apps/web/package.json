@@ -6,11 +6,28 @@
     "@ui/components": "workspace:*",
     "next": "16.2.6",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "react-strict-dom": "0.0.55"
   },
   "nx": {
     "tags": [
       "type:app"
-    ]
+    ],
+    "targets": {
+      "build": {
+        "options": {
+          "args": [
+            "--webpack"
+          ]
+        }
+      },
+      "dev": {
+        "options": {
+          "args": [
+            "--webpack"
+          ]
+        }
+      }
+    }
   }
 }

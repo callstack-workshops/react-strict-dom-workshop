@@ -10,12 +10,5 @@
     "types": ["node"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "references": [
-    {
-      "path": "../tokens/tsconfig.lib.json"
-    },
-    {
-      "path": "../../core/i18n/tsconfig.lib.json"
-    }
-  ]
+  "references": []
 }

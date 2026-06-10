@@ -12,7 +12,7 @@ const config = {
         debug: dev,
         dev,
         platform: 'web',
-        rootDir: process.cwd(),
+        rootDir: require('path').resolve(__dirname, '../..'),
       },
     ],
   ],
