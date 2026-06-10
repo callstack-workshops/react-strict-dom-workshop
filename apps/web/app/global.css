@@ -2,12 +2,11 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 body {
-  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #05070f;
+  flex-direction: column;
+  background-color: #FAFAFA;
 }

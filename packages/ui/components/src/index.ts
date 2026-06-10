@@ -7,3 +7,4 @@ export * from './lib/field-label.js';
 export * from './lib/inline-alert.js';
 export * from './lib/card.js';
 export * from './lib/stepper.js';
+export * from './lib/surface.js';

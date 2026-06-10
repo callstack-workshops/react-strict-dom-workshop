@@ -1,5 +1,5 @@
 import { css, html } from 'react-strict-dom';
-import { colors, spacing, radius } from '@ui/tokens/tokens.css';
+import { colors, spacing } from '@ui/tokens/tokens.css';
 import { Button } from './button.js';
 import { FieldLabel } from './field-label.js';
 
@@ -27,13 +27,13 @@ export function Stepper({
     <html.div style={styles.field} data-testid={dataTestId}>
       <FieldLabel>{label}</FieldLabel>
       <html.div style={styles.row}>
-        <Button variant="secondary" onPress={decrement} disabled={value <= min} data-testid="stepper-decrement">
+        <Button variant="secondary" style={styles.stepButton} onPress={decrement} disabled={value <= min} data-testid="stepper-decrement">
           -
         </Button>
         <html.span style={styles.value} aria-live="polite">
           {String(value)}
         </html.span>
-        <Button variant="secondary" onPress={increment} disabled={value >= max} data-testid="stepper-increment">
+        <Button variant="secondary" style={styles.stepButton} onPress={increment} disabled={value >= max} data-testid="stepper-increment">
           +
         </Button>
       </html.div>
@@ -52,12 +52,15 @@ const styles = css.create({
     alignItems: 'center',
     gap: spacing.x3,
   },
+  stepButton: {
+    paddingInline: spacing.x3,
+    paddingBlock: spacing.x2,
+  },
   value: {
     color: colors.textPrimary,
     fontSize: 18,
     fontWeight: 700,
-    minWidth: 32,
+    minWidth: 40,
     textAlign: 'center',
-    borderRadius: radius.sm,
   },
 });

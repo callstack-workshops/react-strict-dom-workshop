@@ -52,10 +52,13 @@ const styles = css.create({
     color: colors.textPrimary,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: colors.textMuted,
-    borderRadius: radius.sm,
-    paddingInline: spacing.x2,
-    paddingBlock: spacing.x2,
+    borderColor: {
+      default: colors.border,
+      ':focus': colors.actionPrimary,
+    },
+    borderRadius: radius.md,
+    paddingInline: spacing.x3,
+    paddingBlock: spacing.x3,
     fontSize: 16,
   },
   inputInvalid: {

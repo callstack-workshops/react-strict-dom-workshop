@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { css, html } from 'react-strict-dom';
-import { spacing } from '@ui/tokens/tokens.css';
+import { colors, spacing } from '@ui/tokens/tokens.css';
 import {
   Button,
   Card,
@@ -119,13 +119,13 @@ export function BookingForm({ onSubmit }: BookingFormProps) {
 
 const styles = css.create({
   heading: {
-    color: '#18181B',
-    fontSize: 20,
+    color: colors.textPrimary,
+    fontSize: 22,
     fontWeight: 700,
     marginBlockEnd: spacing.x1,
   },
   confirmText: {
-    color: '#18181B',
+    color: colors.textMuted,
     fontSize: 16,
   },
 });

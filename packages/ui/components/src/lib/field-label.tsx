@@ -17,9 +17,9 @@ export function FieldLabel({ children, htmlFor }: FieldLabelProps) {
 
 const styles = css.create({
   label: {
-    color: colors.textPrimary,
-    fontSize: 14,
+    color: colors.textMuted,
+    fontSize: 13,
     fontWeight: 600,
-    marginBlockEnd: spacing.x1,
+    marginBlockEnd: spacing.x2,
   },
 });

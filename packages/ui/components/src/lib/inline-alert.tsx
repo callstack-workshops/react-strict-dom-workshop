@@ -17,16 +17,16 @@ export function InlineAlert({ children, 'data-testid': dataTestId }: InlineAlert
 
 const styles = css.create({
   alert: {
-    backgroundColor: colors.bgCard,
-    borderInlineStartWidth: 4,
+    backgroundColor: colors.bgCriticalSubtle,
+    borderInlineStartWidth: 3,
     borderInlineStartStyle: 'solid',
     borderInlineStartColor: colors.critical,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     paddingInline: spacing.x3,
     paddingBlock: spacing.x2,
   },
   text: {
     color: colors.critical,
-    fontSize: 14,
+    fontSize: 13,
   },
 });

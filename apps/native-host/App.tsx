@@ -1,18 +1,23 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { LocalizationProvider } from '@core/i18n/provider';
+import { Surface } from '@ui/components';
 import { BookingForm } from '@feature/booking';
 
 export default function App() {
   return (
     <LocalizationProvider>
       <ScrollView contentContainerStyle={styles.root}>
-        <BookingForm onSubmit={(values) => console.log('booked', values)} />
+        <Surface>
+          <BookingForm onSubmit={(values) => console.log('booked', values)} />
+        </Surface>
       </ScrollView>
     </LocalizationProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  root: { alignItems: 'center', justifyContent: 'center', backgroundColor: '#05070f', paddingVertical: 48, paddingHorizontal: 16 },
+  root: {
+    flexGrow: 1,
+  },
 });

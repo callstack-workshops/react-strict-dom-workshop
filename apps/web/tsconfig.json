@@ -45,10 +45,10 @@
   ],
   "references": [
     {
-      "path": "../../packages/ui/components"
+      "path": "../../packages/feature/booking"
     },
     {
-      "path": "../../packages/feature/booking"
+      "path": "../../packages/ui/components"
     }
   ]
 }

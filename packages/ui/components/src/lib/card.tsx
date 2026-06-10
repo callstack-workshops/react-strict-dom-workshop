@@ -19,10 +19,15 @@ const styles = css.create({
   card: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
+    maxWidth: 420,
     backgroundColor: colors.bgCard,
-    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: colors.border,
+    borderRadius: radius.xl,
     paddingInline: spacing.x4,
-    paddingBlock: spacing.x4,
-    gap: spacing.x2,
+    paddingBlock: spacing.x5,
+    gap: spacing.x3,
   },
 });

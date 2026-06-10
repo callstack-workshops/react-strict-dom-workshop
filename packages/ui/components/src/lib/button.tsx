@@ -45,8 +45,8 @@ const styles = css.create({
   root: {
     borderWidth: 0,
     borderStyle: 'none',
-    paddingInline: spacing.x3,
-    paddingBlock: spacing.x2,
+    paddingInline: spacing.x4,
+    paddingBlock: spacing.x3,
     borderRadius: radius.md,
     fontSize: 16,
     fontWeight: 600,
@@ -64,6 +64,9 @@ const styles = css.create({
   secondary: {
     backgroundColor: colors.bgCard,
     color: colors.textPrimary,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: colors.border,
   },
   disabled: {
     opacity: 0.5,
