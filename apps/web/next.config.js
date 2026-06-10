@@ -16,7 +16,7 @@ function shouldExclude(resource) {
 /** @type {import('@nx/next/plugins/with-nx').WithNxOptions} */
 const nextConfig = {
   nx: {},
-  transpilePackages: ['react-strict-dom', '@ui/components', '@feature/booking'],
+  transpilePackages: ['react-strict-dom', '@ui/components', '@feature/booking', '@screen/booking'],
   webpack: (config) => {
     const baseConditions =
       config.resolve.conditionNames && config.resolve.conditionNames.length

@@ -8,7 +8,8 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-strict-dom": "0.0.55",
-    "@feature/booking": "workspace:*"
+    "@feature/booking": "workspace:*",
+    "@screen/booking": "workspace:*"
   },
   "nx": {
     "tags": [

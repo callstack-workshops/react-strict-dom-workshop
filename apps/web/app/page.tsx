@@ -1,12 +1,7 @@
 'use client';
 
-import { Surface } from '@ui/components';
-import { BookingForm } from '@feature/booking';
+import { BookingScreen } from '@screen/booking';
 
 export default function Index() {
-  return (
-    <Surface>
-      <BookingForm onSubmit={(values) => console.log('booked', values)} />
-    </Surface>
-  );
+  return <BookingScreen />;
 }

@@ -20,6 +20,9 @@
     },
     {
       "path": "./packages/feature/booking"
+    },
+    {
+      "path": "./packages/screen/booking"
     }
   ]
 }
