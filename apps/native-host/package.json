@@ -10,17 +10,22 @@
     "android": "rock run:android"
   },
   "dependencies": {
+    "@core/i18n": "workspace:*",
+    "@screen/booking": "workspace:*",
+    "@ui/components": "workspace:*",
     "react": "19.2.6",
     "react-native": "0.83.0",
-    "@core/i18n": "workspace:*",
-    "@screen/booking": "workspace:*"
+    "react-native-safe-area-context": "^5.8.0",
+    "@ui/tokens": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
     "@react-native/babel-preset": "0.83.0",
+    "@react-native/codegen": "0.83.0",
     "@react-native/eslint-config": "0.83.0",
+    "@react-native/gradle-plugin": "0.83.0",
     "@react-native/metro-config": "0.83.0",
     "@react-native/typescript-config": "0.83.0",
     "@rock-js/platform-android": "0.12.12",
@@ -35,11 +40,8 @@
     "prettier": "2.8.8",
     "react-test-renderer": "19.2.0",
     "rock": "0.12.12",
-    "typescript": "^5.8.3",
-    "@react-native/codegen": "0.83.0",
-    "@react-native/gradle-plugin": "0.83.0"
+    "typescript": "^5.8.3"
   },
-  "peerDependencies": {},
   "engines": {
     "node": ">=20"
   },

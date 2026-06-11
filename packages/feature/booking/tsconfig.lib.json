@@ -12,6 +12,9 @@
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
+      "path": "../../core/i18n/tsconfig.lib.json"
+    },
+    {
       "path": "../../ui/tokens/tsconfig.lib.json"
     },
     {

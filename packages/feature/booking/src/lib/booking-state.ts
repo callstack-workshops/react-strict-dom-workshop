@@ -1,3 +1,5 @@
+import type { TranslationKey } from '@core/i18n';
+
 export type BookingFormValues = {
   name: string;
   email: string;
@@ -6,7 +8,7 @@ export type BookingFormValues = {
   requests: string;
 };
 
-export type BookingErrors = Partial<Record<keyof BookingFormValues, string>>;
+export type BookingErrors = Partial<Record<keyof BookingFormValues, TranslationKey>>;
 
 export const initialBooking: BookingFormValues = {
   name: '',
@@ -19,16 +21,16 @@ export const initialBooking: BookingFormValues = {
 export function validateBooking(form: BookingFormValues): BookingErrors {
   const errors: BookingErrors = {};
   if (form.name.trim().length === 0) {
-    errors.name = 'Please enter your name.';
+    errors.name = 'booking.error.nameRequired';
   }
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
-    errors.email = 'Please enter a valid email address.';
+  if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email) === false) {
+    errors.email = 'booking.error.emailInvalid';
   }
   if (form.participants < 1) {
-    errors.participants = 'At least one participant is required.';
+    errors.participants = 'booking.error.participantsMin';
   }
   if (form.date.trim().length === 0) {
-    errors.date = 'Please choose a date.';
+    errors.date = 'booking.error.dateRequired';
   }
   return errors;
 }

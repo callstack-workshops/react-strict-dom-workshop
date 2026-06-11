@@ -7,6 +7,12 @@
   "exclude": ["**/node_modules", "**/Pods"],
   "references": [
     {
+      "path": "../../packages/ui/components"
+    },
+    {
+      "path": "../../packages/ui/tokens"
+    },
+    {
       "path": "../../packages/screen/booking"
     },
     {

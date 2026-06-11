@@ -1,5 +1,6 @@
 import './strict.css';
 import './global.css';
+import { surfaceColor } from '@ui/tokens/tokens.css';
 
 export const metadata = {
   title: 'RSD Workshop',
@@ -13,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body style={{ backgroundColor: surfaceColor }}>{children}</body>
     </html>
   );
 }

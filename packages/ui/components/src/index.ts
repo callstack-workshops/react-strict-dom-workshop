@@ -1,5 +1,3 @@
-export { Greeting } from './lib/greeting.js';
-export type { GreetingProps } from './lib/greeting.js';
 export * from './lib/button.js';
 export * from './lib/text-field.js';
 export * from './lib/text-area-field.js';
@@ -9,3 +7,5 @@ export * from './lib/card.js';
 export * from './lib/stepper.js';
 export * from './lib/surface.js';
 export * from './lib/date-field.js';
+export { Flag } from './lib/flag.js';
+export { LocaleSwitcher } from './lib/locale-switcher.js';

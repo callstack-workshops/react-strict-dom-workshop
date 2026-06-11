@@ -25,7 +25,8 @@
     "tslib": "^2.3.0",
     "@ui/components": "workspace:*",
     "@ui/tokens": "workspace:*",
-    "react-native": "0.83.0"
+    "react-native": "0.83.0",
+    "@core/i18n": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "19.2.17"

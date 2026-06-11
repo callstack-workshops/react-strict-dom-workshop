@@ -90,12 +90,21 @@ importers:
       '@screen/booking':
         specifier: workspace:*
         version: link:../../packages/screen/booking
+      '@ui/components':
+        specifier: workspace:*
+        version: link:../../packages/ui/components
+      '@ui/tokens':
+        specifier: workspace:*
+        version: link:../../packages/ui/tokens
       react:
         specifier: 19.2.6
         version: 19.2.6
       react-native:
         specifier: 0.83.0
         version: 0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6)
+      react-native-safe-area-context:
+        specifier: ^5.8.0
+        version: 5.8.0(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
     devDependencies:
       '@babel/core':
         specifier: ^7.25.2
@@ -166,6 +175,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@core/i18n':
+        specifier: workspace:*
+        version: link:../../packages/core/i18n
       '@feature/booking':
         specifier: workspace:*
         version: link:../../packages/feature/booking
@@ -175,6 +187,9 @@ importers:
       '@ui/components':
         specifier: workspace:*
         version: link:../../packages/ui/components
+      '@ui/tokens':
+        specifier: workspace:*
+        version: link:../../packages/ui/tokens
       next:
         specifier: 16.2.6
         version: 16.2.6(@babel/core@7.29.7)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.100.0)
@@ -209,6 +224,9 @@ importers:
 
   packages/feature/booking:
     dependencies:
+      '@core/i18n':
+        specifier: workspace:*
+        version: link:../../core/i18n
       '@ui/components':
         specifier: workspace:*
         version: link:../../ui/components
@@ -6673,6 +6691,12 @@ packages:
 
   react-is@19.2.7:
     resolution: {integrity: sha512-kZFnouyVv7eP/Phmrlo9FK+zcAdriZJvzxXHF1Sl1P377WSGe2G/JxVolhTrB/jeV47lKImhNUsijjHAAbcl/A==}
+
+  react-native-safe-area-context@5.8.0:
+    resolution: {integrity: sha512-t+ZsAVzY/wWzzx34vqGbo3/as9EEESJdbyZNL7Yg5EYX+toYMtMqFoDDCvqZUi35eeGVsXc6pAaEk4edMwbuCQ==}
+    peerDependencies:
+      react: '*'
+      react-native: 0.83.0
 
   react-native@0.83.0:
     resolution: {integrity: sha512-a8wPjGfkktb1+Mjvzkky3d0u6j6zdWAzftZ2LdQtgRgqkMMfgQxD9S+ri3RNlfAFQpuCAOYUIyrNHiVkUQChxA==}
@@ -15900,6 +15924,11 @@ snapshots:
   react-is@18.3.1: {}
 
   react-is@19.2.7: {}
+
+  react-native-safe-area-context@5.8.0(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6):
+    dependencies:
+      react: 19.2.6
+      react-native: 0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6)
 
   react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6):
     dependencies:

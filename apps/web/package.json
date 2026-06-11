@@ -9,7 +9,9 @@
     "react-dom": "19.2.6",
     "react-strict-dom": "0.0.55",
     "@feature/booking": "workspace:*",
-    "@screen/booking": "workspace:*"
+    "@screen/booking": "workspace:*",
+    "@core/i18n": "workspace:*",
+    "@ui/tokens": "workspace:*"
   },
   "nx": {
     "tags": [

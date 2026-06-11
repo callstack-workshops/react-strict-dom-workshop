@@ -1,12 +1,20 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StatusBar, Platform, StyleSheet } from 'react-native';
 import { LocalizationProvider } from '@core/i18n/provider';
 import { BookingScreen } from '@screen/booking';
+import { surfaceColor } from '@ui/tokens/tokens.css';
+
+const androidTopInset = Platform.OS === 'android' ? StatusBar.currentHeight ?? 0 : 0;
 
 export default function App() {
   return (
     <LocalizationProvider>
-      <ScrollView contentContainerStyle={styles.root}>
+      <StatusBar barStyle="dark-content" />
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={{ paddingTop: androidTopInset }}
+        contentInsetAdjustmentBehavior="automatic"
+      >
         <BookingScreen />
       </ScrollView>
     </LocalizationProvider>
@@ -14,7 +22,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flexGrow: 1,
+  scroll: {
+    backgroundColor: surfaceColor,
   },
 });

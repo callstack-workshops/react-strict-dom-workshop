@@ -20,10 +20,10 @@ const styles = css.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '100%',
+    justifyContent: 'flex-start',
     backgroundColor: colors.bgSurface,
-    paddingBlock: spacing.x5,
+    paddingBlockStart: spacing.x3,
+    paddingBlockEnd: spacing.x5,
     paddingInline: spacing.x3,
   },
 });

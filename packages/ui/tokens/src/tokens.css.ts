@@ -1,7 +1,9 @@
 import { css } from 'react-strict-dom';
 
+export const surfaceColor = '#FAFAFA';
+
 export const colors = css.defineVars({
-  bgSurface: '#FAFAFA',
+  bgSurface: surfaceColor,
   bgCard: '#FFFFFF',
   border: '#E4E4E7',
   textPrimary: '#18181B',
