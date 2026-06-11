@@ -6,6 +6,7 @@ export const colors = css.defineVars({
   border: '#E4E4E7',
   textPrimary: '#18181B',
   textMuted: '#52525B',
+  textPlaceholder: '#A1A1AA',
   textOnAction: '#FFFFFF',
   actionPrimary: '#2563EB',
   actionPrimaryHover: '#1D4ED8',

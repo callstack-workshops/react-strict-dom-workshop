@@ -53,6 +53,9 @@ const styles = css.create({
       default: colors.border,
       ':focus': colors.actionPrimary,
     },
+    '::placeholder': {
+      color: colors.textPlaceholder,
+    },
     borderRadius: radius.md,
     paddingInline: spacing.x3,
     paddingBlock: spacing.x3,
