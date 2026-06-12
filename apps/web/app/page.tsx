@@ -11,7 +11,7 @@ import { PageHeader } from './_components/page-header';
 import { HelpPanel } from './_components/help-panel';
 import { ExperienceBanner } from './_components/experience-banner';
 import { DeparturesList } from './_components/departures-list';
-import { BookingForm } from '@feature/booking';
+import { BookingScreen } from '@screen/booking';
 
 export default function Index() {
   return (
@@ -36,7 +36,7 @@ function BookingDashboard() {
           <PageHeader />
           <html.div style={styles.cols}>
             <html.div style={styles.leftCol}>
-              <BookingForm/>
+              <BookingScreen />
               <HelpPanel />
             </html.div>
             <html.div style={styles.rail}>

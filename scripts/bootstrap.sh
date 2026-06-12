@@ -7,7 +7,6 @@ fi
 
 brew list mise >/dev/null 2>&1 || brew install mise
 brew list watchman >/dev/null 2>&1 || brew install watchman
-brew list xcodes >/dev/null 2>&1 || brew install xcodesorg/made/xcodes
 
 eval "$(mise activate bash)"
 mise install

@@ -1,15 +1,11 @@
-'use client';
-
 import { css, html } from 'react-strict-dom';
 import { useLocalization } from '@core/i18n/provider';
 import { colors, spacing, radius } from '@ui/tokens/tokens.css';
-import { Hatch } from './hatch';
 
 export function StudentTaskSlot() {
   const { i18n } = useLocalization();
   return (
     <html.div style={styles.slot}>
-      <Hatch color="rgba(37,99,235,0.08)" rounded={radius.xl} />
       <html.span style={styles.slotPill}>{i18n.t('shell.pill')}</html.span>
     </html.div>
   );
