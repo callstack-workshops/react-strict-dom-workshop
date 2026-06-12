@@ -7,7 +7,6 @@ import {
   Card,
   DateField,
   InlineAlert,
-  LocaleSwitcher,
   Stepper,
   TextAreaField,
   TextField,
@@ -55,7 +54,6 @@ export function BookingForm({ onSubmit }: BookingFormProps) {
   if (submitted) {
     return (
       <Card data-testid="booking-confirmation">
-        <html.span style={styles.heading}>{i18n.t('booking.confirm.title')}</html.span>
         <html.span style={styles.summaryRow}>
           {i18n.t('booking.label.name')}: {values.name}
         </html.span>
@@ -77,10 +75,6 @@ export function BookingForm({ onSubmit }: BookingFormProps) {
 
   return (
     <Card data-testid="booking-form">
-      <html.div style={styles.titleRow}>
-        <html.span style={styles.heading}>{i18n.t('booking.title')}</html.span>
-        <LocaleSwitcher />
-      </html.div>
       <TextField
         label={i18n.t('booking.label.name')}
         id="booking-name"

@@ -23,6 +23,9 @@
     },
     {
       "path": "./packages/screen/booking"
+    },
+    {
+      "path": "./packages/core/providers"
     }
   ]
 }

@@ -13,10 +13,12 @@
     "@core/i18n": "workspace:*",
     "@screen/booking": "workspace:*",
     "@ui/components": "workspace:*",
+    "@ui/tokens": "workspace:*",
     "react": "19.2.6",
     "react-native": "0.83.0",
     "react-native-safe-area-context": "^5.8.0",
-    "@ui/tokens": "workspace:*"
+    "react-strict-dom": "0.0.55",
+    "@core/providers": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

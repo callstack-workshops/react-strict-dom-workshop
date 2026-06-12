@@ -3,15 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@core/i18n": "workspace:*",
+    "@core/providers": "workspace:*",
+    "@feature/booking": "workspace:*",
+    "@fontsource/hanken-grotesk": "^5.2.8",
+    "@screen/booking": "workspace:*",
     "@ui/components": "workspace:*",
+    "@ui/tokens": "workspace:*",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "react-strict-dom": "0.0.55",
-    "@feature/booking": "workspace:*",
-    "@screen/booking": "workspace:*",
-    "@core/i18n": "workspace:*",
-    "@ui/tokens": "workspace:*"
+    "react-strict-dom": "0.0.55"
   },
   "nx": {
     "tags": [

@@ -1,6 +1,8 @@
 import { css } from 'react-strict-dom';
 
 export const surfaceColor = '#FAFAFA';
+export const surfaceColorDark = '#09090B';
+export const fontFamily = 'Hanken Grotesk';
 
 export const colors = css.defineVars({
   bgSurface: surfaceColor,
@@ -14,6 +16,9 @@ export const colors = css.defineVars({
   actionPrimaryHover: '#1D4ED8',
   critical: '#B91C1C',
   bgCriticalSubtle: '#FEF2F2',
+  bgActionSubtle: '#EEF3FE',
+  bgActionSubtleStrong: '#E2EBFC',
+  onActionSubtle: '#1D4ED8',
 });
 
 export const spacing = css.defineVars({

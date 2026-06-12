@@ -16,6 +16,9 @@
       "path": "../../packages/screen/booking"
     },
     {
+      "path": "../../packages/core/providers"
+    },
+    {
       "path": "../../packages/core/i18n"
     }
   ]

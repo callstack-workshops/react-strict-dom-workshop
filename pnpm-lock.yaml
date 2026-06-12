@@ -87,6 +87,9 @@ importers:
       '@core/i18n':
         specifier: workspace:*
         version: link:../../packages/core/i18n
+      '@core/providers':
+        specifier: workspace:*
+        version: link:../../packages/core/providers
       '@screen/booking':
         specifier: workspace:*
         version: link:../../packages/screen/booking
@@ -105,6 +108,9 @@ importers:
       react-native-safe-area-context:
         specifier: ^5.8.0
         version: 5.8.0(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
+      react-strict-dom:
+        specifier: 0.0.55
+        version: 0.0.55(postcss@8.5.15)(react-dom@19.2.6(react@19.2.6))(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
     devDependencies:
       '@babel/core':
         specifier: ^7.25.2
@@ -178,9 +184,15 @@ importers:
       '@core/i18n':
         specifier: workspace:*
         version: link:../../packages/core/i18n
+      '@core/providers':
+        specifier: workspace:*
+        version: link:../../packages/core/providers
       '@feature/booking':
         specifier: workspace:*
         version: link:../../packages/feature/booking
+      '@fontsource/hanken-grotesk':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@screen/booking':
         specifier: workspace:*
         version: link:../../packages/screen/booking
@@ -214,6 +226,28 @@ importers:
       react:
         specifier: '*'
         version: 19.2.6
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+    devDependencies:
+      '@types/react':
+        specifier: 19.2.17
+        version: 19.2.17
+
+  packages/core/providers:
+    dependencies:
+      '@ui/tokens':
+        specifier: workspace:*
+        version: link:../../ui/tokens
+      react:
+        specifier: '*'
+        version: 19.2.6
+      react-native:
+        specifier: 0.83.0
+        version: 0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6)
+      react-strict-dom:
+        specifier: 0.0.55
+        version: 0.0.55(postcss@8.5.15)(react-dom@19.2.6(react@19.2.6))(react-native@0.83.0(@babel/core@7.29.7)(@react-native/metro-config@0.83.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.6))(react@19.2.6)
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -1055,6 +1089,9 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@fontsource/hanken-grotesk@5.2.8':
+    resolution: {integrity: sha512-J/e6hdfNCbyc4WK5hmZtk0zjaIsFx3pvCdPVxY25iYw2C9v1ZggGz4nfHnRjMhcz4WfaadUuwLNtvj8sQ70tkg==}
 
   '@hapi/hoek@9.3.0':
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
@@ -9061,6 +9098,8 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
+  '@fontsource/hanken-grotesk@5.2.8': {}
+
   '@hapi/hoek@9.3.0': {}
 
   '@hapi/topo@5.1.0':
@@ -10766,9 +10805,7 @@ snapshots:
       metro-runtime: 0.83.7
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
 
   '@react-native/normalize-colors@0.83.0': {}
 

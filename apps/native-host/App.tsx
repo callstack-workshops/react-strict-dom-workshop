@@ -1,28 +1,48 @@
-import React from 'react';
-import { ScrollView, StatusBar, Platform, StyleSheet } from 'react-native';
+import { ScrollView, StatusBar, Platform, Pressable, Text } from 'react-native';
 import { LocalizationProvider } from '@core/i18n/provider';
+import { ThemeProvider, ThemeBoundary, useTheme } from '@core/providers/theme';
 import { BookingScreen } from '@screen/booking';
-import { surfaceColor } from '@ui/tokens/tokens.css';
+import { surfaceColor, surfaceColorDark } from '@ui/tokens/tokens.css';
 
-const androidTopInset = Platform.OS === 'android' ? StatusBar.currentHeight ?? 0 : 0;
+const androidTopInset =
+  Platform.OS === 'android' ? StatusBar.currentHeight ?? 0 : 0;
 
-export default function App() {
+function AppShell() {
+  const { isDark, toggleTheme } = useTheme();
   return (
-    <LocalizationProvider>
-      <StatusBar barStyle="dark-content" />
+    <>
+      <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
       <ScrollView
-        style={styles.scroll}
+        style={{ backgroundColor: isDark ? surfaceColorDark : surfaceColor }}
         contentContainerStyle={{ paddingTop: androidTopInset }}
         contentInsetAdjustmentBehavior="automatic"
       >
-        <BookingScreen />
+        <Pressable
+          onPress={toggleTheme}
+          style={{
+            margin: 16,
+            padding: 12,
+            borderRadius: 8,
+            backgroundColor: '#2563EB',
+            alignSelf: 'flex-start',
+          }}
+        >
+          <Text style={{ color: '#FFFFFF' }}>Toggle theme</Text>
+        </Pressable>
+        <ThemeBoundary>
+          <BookingScreen />
+        </ThemeBoundary>
       </ScrollView>
-    </LocalizationProvider>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  scroll: {
-    backgroundColor: surfaceColor,
-  },
-});
+export default function App() {
+  return (
+    <ThemeProvider>
+      <LocalizationProvider>
+        <AppShell />
+      </LocalizationProvider>
+    </ThemeProvider>
+  );
+}
