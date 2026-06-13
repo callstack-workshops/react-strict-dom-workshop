@@ -17,12 +17,12 @@ function BookingHeader() {
 
 export function BookingScreen() {
   return (
-    <html.div style={styles.screen}>
-      <ThemeBoundary>
+    <ThemeBoundary>
+      <html.div style={styles.screen}>      
         <BookingHeader />
         <BookingForm onSubmit={(values) => console.log('booked', values)} />
-      </ThemeBoundary>
-    </html.div>
+      </html.div>
+    </ThemeBoundary>
   );
 }
 
