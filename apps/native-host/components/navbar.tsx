@@ -1,5 +1,5 @@
 import { css, html } from 'react-strict-dom';
-import { useTheme } from '@core/providers/theme';
+import { ThemeBoundary, useTheme } from '@core/providers/theme';
 import { LocaleSwitcher } from '@ui/components';
 import {
   colors,
@@ -12,23 +12,25 @@ export function Navbar({ topInset }: { topInset: number }) {
   const { isDark, toggleTheme } = useTheme();
   const iconColor = isDark ? textPrimaryColorDark : textPrimaryColor;
   return (
-    <html.div style={[styles.navbar, styles.navbarTopInset(topInset)]}>
-      <html.div style={styles.brand}>
-        <html.div style={styles.brandMark}>
-          <html.div style={styles.brandRing} />
+    <ThemeBoundary>
+      <html.div style={[styles.navbar, styles.navbarTopInset(topInset)]}>
+        <html.div style={styles.brand}>
+          <html.div style={styles.brandMark}>
+            <html.div style={styles.brandRing} />
+          </html.div>
+          <html.span style={styles.brandText}>RSD Workshop</html.span>
         </html.div>
-        <html.span style={styles.brandText}>RSD Workshop</html.span>
+        <html.div style={styles.spacer} />
+        <LocaleSwitcher />
+        <html.button
+          style={styles.toggle}
+          onClick={toggleTheme}
+          aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+        >
+          <Icon name={isDark ? 'sun' : 'moon'} size={17} color={iconColor} />
+        </html.button>
       </html.div>
-      <html.div style={styles.spacer} />
-      <LocaleSwitcher />
-      <html.button
-        style={styles.toggle}
-        onClick={toggleTheme}
-        aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      >
-        <Icon name={isDark ? 'sun' : 'moon'} size={17} color={iconColor} />
-      </html.button>
-    </html.div>
+    </ThemeBoundary>
   );
 }
 

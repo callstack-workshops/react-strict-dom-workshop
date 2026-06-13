@@ -21,17 +21,11 @@ function AppShell() {
       }}
     >
       <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
-      <ThemeBoundary>
-        <Navbar topInset={insets.top} />
-      </ThemeBoundary>
+      <Navbar topInset={insets.top} />
       <ScrollView style={{ flex: 1 }}>
-        <ThemeBoundary>
-          <BookingScreen />
-        </ThemeBoundary>
+        <BookingScreen />
       </ScrollView>
-      <ThemeBoundary>
-        <TabBar bottomInset={insets.bottom} />
-      </ThemeBoundary>
+      <TabBar bottomInset={insets.bottom} />
     </View>
   );
 }

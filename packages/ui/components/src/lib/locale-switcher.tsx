@@ -1,7 +1,7 @@
 import { css, html } from 'react-strict-dom';
 import { useLocalization } from '@core/i18n/provider';
 import type { Locale } from '@core/i18n';
-import { colors, spacing, radius } from '@ui/tokens/tokens.css';
+import { spacing } from '@ui/tokens/tokens.css';
 import { Flag } from './flag.js';
 
 type Option = {
@@ -13,8 +13,8 @@ type Option = {
 };
 
 const OPTIONS: Option[] = [
-  { locale: 'en', country: 'gb', width: 36, height: 18, label: 'English' },
-  { locale: 'de', country: 'de', width: 36, height: 22, label: 'Deutsch' },
+  { locale: 'en', country: 'gb', width: 30, height: 18, label: 'English' },
+  { locale: 'de', country: 'de', width: 30, height: 18, label: 'Deutsch' },
 ];
 
 export function LocaleSwitcher() {
@@ -26,7 +26,7 @@ export function LocaleSwitcher() {
           key={opt.locale}
           onClick={() => setLocale(opt.locale)}
           aria-label={opt.label}
-          style={[styles.chip, opt.locale === locale ? styles.chipActive : null]}
+          style={[styles.chip, opt.locale === locale ? styles.chipActive : styles.chipInactive]}
         >
           <Flag code={opt.country} width={opt.width} height={opt.height} alt={opt.label} />
         </html.button>
@@ -46,15 +46,15 @@ const styles = css.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: spacing.x1,
-    borderRadius: radius.md,
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: 'transparent',
-    backgroundColor: colors.bgCard,
+    padding: 0,
+    borderWidth: 0,
+    backgroundColor: 'transparent',
     cursor: 'pointer',
   },
   chipActive: {
-    borderColor: colors.actionPrimary,
+    opacity: 1,
+  },
+  chipInactive: {
+    opacity: 0.25,
   },
 });

@@ -1,13 +1,16 @@
 import { css, html } from 'react-strict-dom';
 import { spacing, colors } from '@ui/tokens/tokens.css';
+import { useLocalization } from '@core/i18n/provider';
+import { ThemeBoundary } from '@core/providers/theme';
 import { BookingForm } from '@feature/booking';
 
 function BookingHeader() {
+  const { i18n } = useLocalization();
   return (
     <html.div style={styles.header}>
-      <html.span style={styles.eyebrow}>Reserve a spot</html.span>
-      <html.span style={styles.title}>Request a booking</html.span>
-      <html.span style={styles.subtitle}>Reserve a spot on a guided experience</html.span>
+      <html.span style={styles.eyebrow}>{i18n.t('booking.header.eyebrow')}</html.span>
+      <html.span style={styles.title}>{i18n.t('booking.title')}</html.span>
+      <html.span style={styles.subtitle}>{i18n.t('booking.header.subtitle')}</html.span>
     </html.div>
   );
 }
@@ -15,8 +18,10 @@ function BookingHeader() {
 export function BookingScreen() {
   return (
     <html.div style={styles.screen}>
-      <BookingHeader />
-      <BookingForm onSubmit={(values) => console.log('booked', values)} />
+      <ThemeBoundary>
+        <BookingHeader />
+        <BookingForm onSubmit={(values) => console.log('booked', values)} />
+      </ThemeBoundary>
     </html.div>
   );
 }

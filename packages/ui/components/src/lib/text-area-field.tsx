@@ -64,6 +64,7 @@ const styles = css.create({
     paddingBlock: spacing.x3,
     fontSize: 16,
     minHeight: 96,
+    resize: 'none',
   },
   inputInvalid: {
     borderColor: colors.critical,

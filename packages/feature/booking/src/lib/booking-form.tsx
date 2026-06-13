@@ -61,7 +61,10 @@ export function BookingForm({ onSubmit }: BookingFormProps) {
           {i18n.t('booking.label.email')}: {values.email}
         </html.span>
         <html.span style={styles.summaryRow}>
-          {i18n.t('booking.label.participants')}: {String(values.participants)}
+          {i18n.t('booking.label.adults')}: {String(values.adults)}
+        </html.span>
+        <html.span style={styles.summaryRow}>
+          {i18n.t('booking.label.children')}: {String(values.children)}
         </html.span>
         <html.span style={styles.summaryRow}>
           {i18n.t('booking.label.date')}: {values.date}
@@ -96,12 +99,21 @@ export function BookingForm({ onSubmit }: BookingFormProps) {
         data-testid="booking-field-email"
       />
       {errors.email != null ? <InlineAlert data-testid="booking-error-email">{i18n.t(errors.email)}</InlineAlert> : null}
-      <Stepper
-        label={i18n.t('booking.label.participants')}
-        value={values.participants}
-        onChange={(v) => update('participants', v)}
-        data-testid="booking-field-participants"
-      />
+      <html.div style={styles.stepperRow}>
+        <Stepper
+          label={i18n.t('booking.label.adults')}
+          value={values.adults}
+          onChange={(v) => update('adults', v)}
+          data-testid="booking-field-adults"
+        />
+        <Stepper
+          label={i18n.t('booking.label.children')}
+          value={values.children}
+          min={0}
+          onChange={(v) => update('children', v)}
+          data-testid="booking-field-children"
+        />
+      </html.div>
       <DateField
         label={i18n.t('booking.label.date')}
         id="booking-date"
@@ -133,6 +145,12 @@ const styles = css.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBlockEnd: spacing.x1,
+  },
+  stepperRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   heading: {
     color: colors.textPrimary,

@@ -24,6 +24,8 @@
     "tslib": "^2.3.0",
     "@ui/components": "workspace:*",
     "@feature/booking": "workspace:*",
+    "@core/i18n": "workspace:*",
+    "@core/providers": "workspace:*",
     "react-strict-dom": "0.0.55",
     "@ui/tokens": "workspace:*"
   },

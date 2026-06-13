@@ -2,9 +2,13 @@ export type Locale = 'en' | 'de';
 
 export type TranslationKey =
   | 'booking.title'
+  | 'booking.header.eyebrow'
+  | 'booking.header.subtitle'
   | 'booking.label.name'
   | 'booking.label.email'
   | 'booking.label.participants'
+  | 'booking.label.adults'
+  | 'booking.label.children'
   | 'booking.label.date'
   | 'booking.label.requests'
   | 'booking.placeholder.name'

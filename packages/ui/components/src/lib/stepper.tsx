@@ -45,6 +45,7 @@ const styles = css.create({
   field: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
   },
   row: {
     display: 'flex',

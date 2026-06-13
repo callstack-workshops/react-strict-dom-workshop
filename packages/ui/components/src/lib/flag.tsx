@@ -23,6 +23,5 @@ const styles = css.create({
   size: (width: number, height: number) => ({
     width,
     height,
-    borderRadius: 2,
   }),
 });

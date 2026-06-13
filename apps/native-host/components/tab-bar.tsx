@@ -1,6 +1,6 @@
 import { css, html } from 'react-strict-dom';
 import { useLocalization } from '@core/i18n/provider';
-import { useTheme } from '@core/providers/theme';
+import { ThemeBoundary, useTheme } from '@core/providers/theme';
 import {
   colors,
   textPlaceholderColor,
@@ -22,24 +22,26 @@ export function TabBar({ bottomInset }: { bottomInset: number }) {
   const { i18n } = useLocalization();
   const inactive = isDark ? textPlaceholderColorDark : textPlaceholderColor;
   return (
-    <html.div style={[styles.tabbar, styles.tabbarBottomInset(bottomInset)]}>
-      {TABS.map((tab) =>
-        tab.fab ? (
-          <html.div key={tab.key} style={styles.tabItem}>
-            <html.div style={styles.fab}>
-              <Icon name={tab.key} size={24} color={textOnActionColor} />
+    <ThemeBoundary>
+      <html.div style={[styles.tabbar, styles.tabbarBottomInset(bottomInset)]}>
+        {TABS.map((tab) =>
+          tab.fab ? (
+            <html.div key={tab.key} style={styles.tabItem}>
+              <html.div style={styles.fab}>
+                <Icon name={tab.key} size={24} color={textOnActionColor} />
+              </html.div>
             </html.div>
-          </html.div>
-        ) : (
-          <html.div key={tab.key} style={styles.tabItem}>
-            <Icon name={tab.key} size={24} color={inactive} />
-            <html.span style={styles.tabLabel}>
-              {i18n.t(tab.labelKey)}
-            </html.span>
-          </html.div>
-        ),
-      )}
-    </html.div>
+          ) : (
+            <html.div key={tab.key} style={styles.tabItem}>
+              <Icon name={tab.key} size={24} color={inactive} />
+              <html.span style={styles.tabLabel}>
+                {i18n.t(tab.labelKey)}
+              </html.span>
+            </html.div>
+          ),
+        )}
+      </html.div>
+    </ThemeBoundary>
   );
 }
 

@@ -286,6 +286,12 @@ importers:
 
   packages/screen/booking:
     dependencies:
+      '@core/i18n':
+        specifier: workspace:*
+        version: link:../../core/i18n
+      '@core/providers':
+        specifier: workspace:*
+        version: link:../../core/providers
       '@feature/booking':
         specifier: workspace:*
         version: link:../../feature/booking

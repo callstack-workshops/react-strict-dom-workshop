@@ -3,9 +3,13 @@ import type { Locale, TranslationKey } from './i18n.types.js';
 export const translations: Record<Locale, Record<TranslationKey, string>> = {
   en: {
     'booking.title': 'Request a booking',
+    'booking.header.eyebrow': 'Reserve a spot',
+    'booking.header.subtitle': 'Reserve a spot on a guided experience',
     'booking.label.name': 'Full name',
     'booking.label.email': 'Email',
     'booking.label.participants': 'Participants',
+    'booking.label.adults': 'Adults',
+    'booking.label.children': 'Children',
     'booking.label.date': 'Date',
     'booking.label.requests': 'Special requests',
     'booking.placeholder.name': 'Ada Lovelace',
@@ -58,9 +62,13 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
   },
   de: {
     'booking.title': 'Buchung anfragen',
+    'booking.header.eyebrow': 'Platz reservieren',
+    'booking.header.subtitle': 'Reservieren Sie einen Platz bei einem geführten Erlebnis',
     'booking.label.name': 'Vollständiger Name',
     'booking.label.email': 'E-Mail',
     'booking.label.participants': 'Teilnehmer',
+    'booking.label.adults': 'Erwachsene',
+    'booking.label.children': 'Kinder',
     'booking.label.date': 'Datum',
     'booking.label.requests': 'Besondere Wünsche',
     'booking.placeholder.name': 'Ada Lovelace',

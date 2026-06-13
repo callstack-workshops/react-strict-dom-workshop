@@ -3,7 +3,8 @@ import type { TranslationKey } from '@core/i18n';
 export type BookingFormValues = {
   name: string;
   email: string;
-  participants: number;
+  adults: number;
+  children: number;
   date: string;
   requests: string;
 };
@@ -13,7 +14,8 @@ export type BookingErrors = Partial<Record<keyof BookingFormValues, TranslationK
 export const initialBooking: BookingFormValues = {
   name: '',
   email: '',
-  participants: 2,
+  adults: 2,
+  children: 0,
   date: '',
   requests: '',
 };
@@ -26,8 +28,8 @@ export function validateBooking(form: BookingFormValues): BookingErrors {
   if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email) === false) {
     errors.email = 'booking.error.emailInvalid';
   }
-  if (form.participants < 1) {
-    errors.participants = 'booking.error.participantsMin';
+  if (form.adults < 1) {
+    errors.adults = 'booking.error.participantsMin';
   }
   if (form.date.trim().length === 0) {
     errors.date = 'booking.error.dateRequired';
