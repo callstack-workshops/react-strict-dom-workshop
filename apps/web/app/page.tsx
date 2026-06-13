@@ -7,7 +7,6 @@ import { colors, spacing } from '@ui/tokens/tokens.css';
 import { DocumentTheme } from './_components/document-theme';
 import { Sidebar } from './_components/sidebar';
 import { Topbar } from './_components/topbar';
-import { PageHeader } from './_components/page-header';
 import { HelpPanel } from './_components/help-panel';
 import { ExperienceBanner } from './_components/experience-banner';
 import { DeparturesList } from './_components/departures-list';
@@ -33,7 +32,6 @@ function BookingDashboard() {
       <html.div style={styles.main}>
         <Topbar />
         <html.div style={styles.body}>
-          <PageHeader />
           <html.div style={styles.cols}>
             <html.div style={styles.leftCol}>
               <BookingScreen />

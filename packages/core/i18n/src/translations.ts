@@ -50,6 +50,11 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     'shell.spots.left': '{n} of 8 left',
     'shell.spots.soldout': 'Sold out',
     'shell.spots.sunset': 'Sunset · {n} left',
+    'mobile.tab.explore': 'Explore',
+    'mobile.tab.departures': 'Departures',
+    'mobile.tab.book': 'Book',
+    'mobile.tab.trips': 'Trips',
+    'mobile.tab.profile': 'Profile',
   },
   de: {
     'booking.title': 'Buchung anfragen',
@@ -100,5 +105,10 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     'shell.spots.left': '{n} von 8 frei',
     'shell.spots.soldout': 'Ausgebucht',
     'shell.spots.sunset': 'Sonnenuntergang · {n} frei',
+    'mobile.tab.explore': 'Entdecken',
+    'mobile.tab.departures': 'Abfahrten',
+    'mobile.tab.book': 'Buchen',
+    'mobile.tab.trips': 'Reisen',
+    'mobile.tab.profile': 'Profil',
   },
 };

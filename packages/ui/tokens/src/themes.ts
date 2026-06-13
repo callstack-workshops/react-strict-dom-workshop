@@ -1,15 +1,22 @@
 import { css } from 'react-strict-dom';
-import { colors } from './tokens.css.js';
+import {
+  colors,
+  surfaceColorDark,
+  textPrimaryColorDark,
+  textPlaceholderColorDark,
+  textOnActionColor,
+  actionColorDark,
+} from './tokens.css.js';
 
 export const darkTheme = css.createTheme(colors, {
-  bgSurface: '#09090B',
+  bgSurface: surfaceColorDark,
   bgCard: '#18181B',
   border: '#27272A',
-  textPrimary: '#FAFAFA',
+  textPrimary: textPrimaryColorDark,
   textMuted: '#A1A1AA',
-  textPlaceholder: '#71717A',
-  textOnAction: '#FFFFFF',
-  actionPrimary: '#3B82F6',
+  textPlaceholder: textPlaceholderColorDark,
+  textOnAction: textOnActionColor,
+  actionPrimary: actionColorDark,
   actionPrimaryHover: '#60A5FA',
   critical: '#F87171',
   bgCriticalSubtle: '#450A0A',

@@ -16,9 +16,10 @@
     "@ui/tokens": "workspace:*",
     "react": "19.2.6",
     "react-native": "0.83.0",
-    "react-native-safe-area-context": "^5.8.0",
+    "react-native-safe-area-context": "5.8.0",
     "react-strict-dom": "0.0.55",
-    "@core/providers": "workspace:*"
+    "@core/providers": "workspace:*",
+    "react-native-svg": "15.15.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

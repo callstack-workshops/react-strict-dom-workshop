@@ -48,7 +48,12 @@ export type TranslationKey =
   | 'shell.status.full'
   | 'shell.spots.left'
   | 'shell.spots.soldout'
-  | 'shell.spots.sunset';
+  | 'shell.spots.sunset'
+  | 'mobile.tab.explore'
+  | 'mobile.tab.departures'
+  | 'mobile.tab.book'
+  | 'mobile.tab.trips'
+  | 'mobile.tab.profile';
 
 export interface I18n {
   readonly locale: Locale;

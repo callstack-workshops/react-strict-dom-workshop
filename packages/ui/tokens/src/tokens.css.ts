@@ -4,15 +4,23 @@ export const surfaceColor = '#FAFAFA';
 export const surfaceColorDark = '#09090B';
 export const fontFamily = 'Hanken Grotesk';
 
+export const textPrimaryColor = '#18181B';
+export const textPrimaryColorDark = '#FAFAFA';
+export const textPlaceholderColor = '#A1A1AA';
+export const textPlaceholderColorDark = '#71717A';
+export const textOnActionColor = '#FFFFFF';
+export const actionColor = '#2563EB';
+export const actionColorDark = '#3B82F6';
+
 export const colors = css.defineVars({
   bgSurface: surfaceColor,
   bgCard: '#FFFFFF',
   border: '#E4E4E7',
-  textPrimary: '#18181B',
+  textPrimary: textPrimaryColor,
   textMuted: '#52525B',
-  textPlaceholder: '#A1A1AA',
-  textOnAction: '#FFFFFF',
-  actionPrimary: '#2563EB',
+  textPlaceholder: textPlaceholderColor,
+  textOnAction: textOnActionColor,
+  actionPrimary: actionColor,
   actionPrimaryHover: '#1D4ED8',
   critical: '#B91C1C',
   bgCriticalSubtle: '#FEF2F2',
