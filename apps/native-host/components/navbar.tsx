@@ -22,10 +22,16 @@ export function Navbar({ topInset }: { topInset: number }) {
         </html.div>
         <html.div style={styles.spacer} />
         <LocaleSwitcher />
+        {/* WORKSHOP-TODO(X2 A2): inspect this toggle. The on/off rides on aria-pressed, which works on
+            web (the screen reader says "pressed") but has no native home - RN accessibilityState has no
+            'pressed' field, so RSD drops it silently and the dark/light state is never announced on
+            native (only the icon changes). Fix: the accessible Toggle primitive that carries its state
+            in the label ("Dark mode, on" / "Dark mode, off"), shared by the navbar and the topbar. */}
         <html.button
           style={styles.toggle}
           onClick={toggleTheme}
-          aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+          aria-label="Dark mode"
+          aria-pressed={isDark}
         >
           <Icon name={isDark ? 'sun' : 'moon'} size={17} color={iconColor} />
         </html.button>

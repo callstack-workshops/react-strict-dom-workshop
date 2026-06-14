@@ -11,7 +11,7 @@ import { Sidebar } from './_components/sidebar';
 import { Topbar } from './_components/topbar';
 import { HelpPanel } from './_components/help-panel';
 import { DeparturesList } from './_components/departures-list';
-import { BookingScreen } from '@screen/booking';
+import { BookingScreen, PromoCode } from '@screen/booking';
 
 export default function Index() {
   return (
@@ -37,7 +37,6 @@ function BookingDashboard() {
           <html.div style={styles.cols}>
             <html.div style={styles.leftCol}>
               <BookingScreen />
-              <HelpPanel />
             </html.div>
             <html.div style={styles.rail}>
               <ExperienceBanner
@@ -54,6 +53,14 @@ function BookingDashboard() {
                 rating="★★★★★ 4.9"
               />
               <DeparturesList />
+              <html.div style={styles.promoRow}>
+                <html.div style={styles.promoCell}>
+                  <PromoCode />
+                </html.div>
+                <html.div style={styles.helpCell}>
+                  <HelpPanel />
+                </html.div>
+              </html.div>
             </html.div>
           </html.div>
         </html.div>
@@ -82,4 +89,7 @@ const styles = css.create({
   cols: { display: 'flex', flexDirection: 'row', gap: spacing.x4, flexGrow: 1, minHeight: 0 },
   leftCol: { display: 'flex', flexDirection: 'column', gap: spacing.x3, flexShrink: 0 },
   rail: { display: 'flex', flexDirection: 'column', gap: spacing.x3, flexGrow: 1, minHeight: 0, minWidth: 0 },
+  promoRow: { display: 'flex', flexDirection: 'row', gap: spacing.x3, alignItems: 'flex-start' },
+  promoCell: { display: 'flex', flexDirection: 'column', flexGrow: 1, flexBasis: 0, minWidth: 0 },
+  helpCell: { display: 'flex', flexDirection: 'column', flexGrow: 1, flexBasis: 0, minWidth: 0 },
 });
