@@ -41,8 +41,6 @@ function BookingDashboard() {
             </html.div>
             <html.div style={styles.rail}>
               <ExperienceBanner
-                variant="stacked"
-                compact
                 location="Sintra Coast, Portugal"
                 title="Coastal Caves Kayak Tour"
                 availability="filling"
