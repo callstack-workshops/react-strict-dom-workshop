@@ -4,11 +4,12 @@ import { css, html } from 'react-strict-dom';
 import { LocalizationProvider } from '@core/i18n/provider';
 import { ThemeProvider, ThemeBoundary } from '@core/providers/theme';
 import { colors, spacing } from '@ui/tokens/tokens.css';
+import { useLocalization } from '@core/i18n/provider';
+import { ExperienceBanner } from '@ui/components';
 import { DocumentTheme } from './_components/document-theme';
 import { Sidebar } from './_components/sidebar';
 import { Topbar } from './_components/topbar';
 import { HelpPanel } from './_components/help-panel';
-import { ExperienceBanner } from './_components/experience-banner';
 import { DeparturesList } from './_components/departures-list';
 import { BookingScreen } from '@screen/booking';
 
@@ -26,6 +27,7 @@ export default function Index() {
 }
 
 function BookingDashboard() {
+  const { i18n } = useLocalization();
   return (
     <html.div style={styles.shell}>
       <Sidebar />
@@ -38,7 +40,18 @@ function BookingDashboard() {
               <HelpPanel />
             </html.div>
             <html.div style={styles.rail}>
-              <ExperienceBanner />
+              <ExperienceBanner
+                location="Sintra Coast, Portugal"
+                title="Coastal Caves Kayak Tour"
+                chips={[
+                  i18n.t('shell.banner.duration'),
+                  i18n.t('shell.banner.group'),
+                  'EN · DE',
+                ]}
+                price="€74"
+                priceSub={i18n.t('shell.banner.perPerson')}
+                rating="★★★★★ 4.9"
+              />
               <DeparturesList />
             </html.div>
           </html.div>
