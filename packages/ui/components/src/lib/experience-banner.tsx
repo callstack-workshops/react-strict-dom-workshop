@@ -2,6 +2,12 @@ import { css, html } from 'react-strict-dom';
 import type { Styles } from 'react-strict-dom';
 import { colors, spacing, radius } from '@ui/tokens/tokens.css';
 
+const shimmer = css.keyframes({
+  '0%': { opacity: 1 },
+  '50%': { opacity: 0.45 },
+  '100%': { opacity: 1 },
+});
+
 export type CtaStyleOverride = Styles<{
   backgroundColor?: string;
   color?: string;
@@ -16,6 +22,21 @@ const AVAILABILITY_LABEL: Record<Availability, string> = {
   filling: 'Filling fast',
   soldout: 'Sold out',
 };
+
+const AVAILABILITY_COLOR: Record<Availability, [string, string]> = {
+  available: ['#DCFCE7', '#15803D'],
+  filling: ['#FEF3C7', '#B45309'],
+  soldout: ['#FEE2E2', '#B91C1C'],
+};
+
+const badgeSwatch = css.create({
+  // WORKSHOP-TODO(X1): availability is one of three known values, yet this colours the badge
+  // with a DYNAMIC style function. StyleX compiles a dynamic function to a CSS variable set at
+  // runtime on every render, off the cheap static path. Refactor to a static VARIANT: a
+  // css.create keyed by availability (available/filling/soldout), selected with
+  // styles[availability]. List the values, pick by key.
+  tone: (bg: string, fg: string) => ({ backgroundColor: bg, color: fg }),
+});
 
 export type ExperienceBannerProps = {
   title: string;
@@ -57,7 +78,7 @@ export function ExperienceBanner({
       <html.div style={styles.body}>
         <html.div style={styles.topRow}>
           <html.span style={styles.chip}>{location}</html.span>
-          <html.span style={[styles.badge, styles[availability]]}>
+          <html.span style={[styles.badge, badgeSwatch.tone(...AVAILABILITY_COLOR[availability])]}>
             {AVAILABILITY_LABEL[availability]}
           </html.span>
         </html.div>
@@ -115,6 +136,13 @@ const styles = css.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
+    // WORKSHOP-TODO(X1): css.keyframes compiles, so this skeleton shimmer looks fine, but every
+    // animation* property is unsupported on native (native logs `css.keyframes() is not
+    // supported.`) so the shimmer is dead there while it animates on web. Cut it, or split a
+    // Reanimated shimmer into a .native file.
+    animationName: shimmer,
+    animationDuration: '1400ms',
+    animationIterationCount: 'infinite',
   },
   mediaStacked: {
     width: '100%',
@@ -133,7 +161,10 @@ const styles = css.create({
     minWidth: 0,
   },
   topRow: {
-    display: 'flex',
+    // WORKSHOP-TODO(X1): native logs `"display:flex" is required for "justifyContent" to have an
+    // effect.` Without display:flex this row drops to block flow on web (the badge falls under
+    // the location instead of sitting at the end); native still lays the row out but warns. Add
+    // the missing display.
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -171,18 +202,6 @@ const styles = css.create({
     paddingBlock: 4,
     paddingInline: 9,
     flexShrink: 0,
-  },
-  available: {
-    backgroundColor: '#DCFCE7',
-    color: '#15803D',
-  },
-  filling: {
-    backgroundColor: '#FEF3C7',
-    color: '#B45309',
-  },
-  soldout: {
-    backgroundColor: '#FEE2E2',
-    color: '#B91C1C',
   },
   action: {
     display: 'flex',
