@@ -60,13 +60,8 @@ export function ExploreScreen() {
       <ThemeBoundary>
         <html.div style={styles.feed}>
           <html.span style={styles.heading}>Explore experiences</html.span>
-          {/* WORKSHOP-TODO(X1): the shared banner is rendered with its row variant inside a
-              narrow phone feed, so every card cramps. The component ships a stacked variant for
-              exactly this, and NOTHING logs a warning - you only catch it by looking at the
-              device. Pick the platform-appropriate variant. (Stretch: instead of a fixed
-              variant, make the banner adapt with a width @media - which works on native too.) */}
           {EXPERIENCES.map((experience, i) => (
-            <ExperienceBanner key={i} variant="row" {...experience} />
+            <ExperienceBanner key={i} variant="stacked" {...experience} />
           ))}
         </html.div>
       </ThemeBoundary>

@@ -40,13 +40,6 @@ function BookingDashboard() {
               <HelpPanel />
             </html.div>
             <html.div style={styles.rail}>
-              {/* WORKSHOP-TODO(X1): this "featured" CTA tint is a flat backgroundColor passed as
-                  a style override. StyleX merges arrays last-wins with no specificity, so it
-                  replaces the CTA's whole stateful backgroundColor ({ default, :hover, :active })
-                  and the View button stops reacting to hover. Inspect the two background-color
-                  atomic classes in devtools: the later one wins. Fix: drop the override - the
-                  component owns its interaction states; varying the CTA belongs in the component,
-                  not an ad-hoc style. */}
               <ExperienceBanner
                 location="Sintra Coast, Portugal"
                 title="Coastal Caves Kayak Tour"
@@ -59,7 +52,6 @@ function BookingDashboard() {
                 price="€74"
                 priceSub={i18n.t('shell.banner.perPerson')}
                 rating="★★★★★ 4.9"
-                ctaStyle={styles.featuredCta}
               />
               <DeparturesList />
             </html.div>
@@ -89,6 +81,5 @@ const styles = css.create({
   },
   cols: { display: 'flex', flexDirection: 'row', gap: spacing.x4, flexGrow: 1, minHeight: 0 },
   leftCol: { display: 'flex', flexDirection: 'column', gap: spacing.x3, flexShrink: 0 },
-  featuredCta: { backgroundColor: '#1E3A8A' },
   rail: { display: 'flex', flexDirection: 'column', gap: spacing.x3, flexGrow: 1, minHeight: 0, minWidth: 0 },
 });
