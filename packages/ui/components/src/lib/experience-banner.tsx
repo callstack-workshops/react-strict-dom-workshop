@@ -1,5 +1,13 @@
 import { css, html } from 'react-strict-dom';
+import type { Styles } from 'react-strict-dom';
 import { colors, spacing, radius } from '@ui/tokens/tokens.css';
+
+export type CtaStyleOverride = Styles<{
+  backgroundColor?: string;
+  color?: string;
+  paddingInline?: string;
+  paddingBlock?: string;
+}>;
 
 export type Availability = 'available' | 'filling' | 'soldout';
 
@@ -19,6 +27,7 @@ export type ExperienceBannerProps = {
   rating: string;
   mediaLabel?: string;
   ctaLabel?: string;
+  ctaStyle?: CtaStyleOverride;
   onView?: () => void;
   variant?: 'row' | 'stacked';
   'data-testid'?: string;
@@ -34,6 +43,7 @@ export function ExperienceBanner({
   rating,
   mediaLabel = 'img · experience',
   ctaLabel = 'View',
+  ctaStyle,
   onView,
   variant = 'row',
   'data-testid': dataTestId,
@@ -59,7 +69,7 @@ export function ExperienceBanner({
             </html.span>
           ))}
         </html.div>
-        <html.button style={styles.cta} onClick={onView}>
+        <html.button style={[styles.cta, ctaStyle]} onClick={onView}>
           {ctaLabel}
         </html.button>
       </html.div>
