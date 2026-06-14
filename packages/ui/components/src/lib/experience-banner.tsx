@@ -30,6 +30,7 @@ export type ExperienceBannerProps = {
   ctaStyle?: CtaStyleOverride;
   onView?: () => void;
   variant?: 'row' | 'stacked';
+  compact?: boolean;
   'data-testid'?: string;
 };
 
@@ -46,22 +47,28 @@ export function ExperienceBanner({
   ctaStyle,
   onView,
   variant = 'row',
+  compact = false,
   'data-testid': dataTestId,
 }: ExperienceBannerProps) {
   const stacked = variant === 'stacked';
   return (
-    <html.div data-testid={dataTestId} style={[styles.banner, stacked && styles.bannerStacked]}>
-      <html.div style={[styles.media, stacked && styles.mediaStacked]}>
+    <html.div
+      data-testid={dataTestId}
+      style={[styles.banner, stacked && styles.bannerStacked, compact && styles.bannerCompact]}
+    >
+      <html.div
+        style={[styles.media, stacked && styles.mediaStacked, compact && styles.mediaCompact]}
+      >
         <html.span style={styles.mediaLabel}>{mediaLabel}</html.span>
       </html.div>
-      <html.div style={styles.body}>
+      <html.div style={[styles.body, compact && styles.bodyCompact]}>
         <html.div style={styles.topRow}>
           <html.span style={styles.chip}>{location}</html.span>
           <html.span style={[styles.badge, styles[availability]]}>
             {AVAILABILITY_LABEL[availability]}
           </html.span>
         </html.div>
-        <html.span style={styles.title}>{title}</html.span>
+        <html.span style={[styles.title, compact && styles.titleCompact]}>{title}</html.span>
         <html.div style={styles.chipRow}>
           {chips.map((chip, i) => (
             <html.span key={i} style={styles.chip}>
@@ -73,8 +80,10 @@ export function ExperienceBanner({
           {ctaLabel}
         </html.button>
       </html.div>
-      <html.div style={[styles.price, stacked && styles.priceStacked]}>
-        <html.span style={styles.priceBig}>{price}</html.span>
+      <html.div
+        style={[styles.price, stacked && styles.priceStacked, compact && styles.priceCompact]}
+      >
+        <html.span style={[styles.priceBig, compact && styles.priceBigCompact]}>{price}</html.span>
         <html.span style={styles.priceSub}>{priceSub}</html.span>
         <html.span style={styles.priceRating}>{rating}</html.span>
       </html.div>
@@ -99,6 +108,11 @@ const styles = css.create({
     flexDirection: 'column',
     alignItems: 'stretch',
   },
+  bannerCompact: {
+    padding: spacing.x2,
+    gap: spacing.x2,
+    borderRadius: radius.lg,
+  },
   media: {
     position: 'relative',
     width: 184,
@@ -118,6 +132,10 @@ const styles = css.create({
     width: '100%',
     height: 150,
   },
+  mediaCompact: {
+    height: 84,
+    borderRadius: radius.md,
+  },
   mediaLabel: {
     fontFamily: 'monospace',
     fontSize: 11.5,
@@ -130,6 +148,9 @@ const styles = css.create({
     flexGrow: 1,
     minWidth: 0,
   },
+  bodyCompact: {
+    gap: spacing.x1,
+  },
   topRow: {
     display: 'flex',
     flexDirection: 'row',
@@ -141,6 +162,9 @@ const styles = css.create({
     fontSize: 19,
     fontWeight: '700',
     color: colors.textPrimary,
+  },
+  titleCompact: {
+    fontSize: 15.5,
   },
   chipRow: {
     display: 'flex',
@@ -204,10 +228,16 @@ const styles = css.create({
     borderTopStyle: 'solid',
     borderColor: colors.border,
   },
+  priceCompact: {
+    paddingBlockStart: spacing.x2,
+  },
   priceBig: {
     fontSize: 26,
     fontWeight: '700',
     color: colors.textPrimary,
+  },
+  priceBigCompact: {
+    fontSize: 20,
   },
   priceSub: {
     fontSize: 12,
