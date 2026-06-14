@@ -6,6 +6,8 @@ import {
   textPlaceholderColor,
   textPlaceholderColorDark,
   textOnActionColor,
+  actionColor,
+  actionColorDark,
 } from '@ui/tokens/tokens.css';
 import { Icon } from './icon';
 
@@ -17,10 +19,17 @@ const TABS = [
   { key: 'user', labelKey: 'mobile.tab.profile', fab: false },
 ] as const;
 
-export function TabBar({ bottomInset }: { bottomInset: number }) {
+export function TabBar({
+  bottomInset,
+  activeKey,
+}: {
+  bottomInset: number;
+  activeKey?: string;
+}) {
   const { isDark } = useTheme();
   const { i18n } = useLocalization();
   const inactive = isDark ? textPlaceholderColorDark : textPlaceholderColor;
+  const active = isDark ? actionColorDark : actionColor;
   return (
     <ThemeBoundary>
       <html.div style={[styles.tabbar, styles.tabbarBottomInset(bottomInset)]}>
@@ -33,8 +42,17 @@ export function TabBar({ bottomInset }: { bottomInset: number }) {
             </html.div>
           ) : (
             <html.div key={tab.key} style={styles.tabItem}>
-              <Icon name={tab.key} size={24} color={inactive} />
-              <html.span style={styles.tabLabel}>
+              <Icon
+                name={tab.key}
+                size={24}
+                color={tab.key === activeKey ? active : inactive}
+              />
+              <html.span
+                style={[
+                  styles.tabLabel,
+                  tab.key === activeKey && styles.tabLabelActive,
+                ]}
+              >
                 {i18n.t(tab.labelKey)}
               </html.span>
             </html.div>
@@ -81,5 +99,8 @@ const styles = css.create({
     fontSize: 10.5,
     fontWeight: 600,
     color: colors.textPlaceholder,
+  },
+  tabLabelActive: {
+    color: colors.actionPrimary,
   },
 });
