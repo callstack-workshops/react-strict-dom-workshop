@@ -1,9 +1,18 @@
 import { css, html } from 'react-strict-dom';
 import { colors, spacing, radius } from '@ui/tokens/tokens.css';
 
+export type Availability = 'available' | 'filling' | 'soldout';
+
+const AVAILABILITY_LABEL: Record<Availability, string> = {
+  available: 'Available',
+  filling: 'Filling fast',
+  soldout: 'Sold out',
+};
+
 export type ExperienceBannerProps = {
   title: string;
   location: string;
+  availability: Availability;
   chips: string[];
   price: string;
   priceSub: string;
@@ -18,6 +27,7 @@ export type ExperienceBannerProps = {
 export function ExperienceBanner({
   title,
   location,
+  availability,
   chips,
   price,
   priceSub,
@@ -35,7 +45,12 @@ export function ExperienceBanner({
         <html.span style={styles.mediaLabel}>{mediaLabel}</html.span>
       </html.div>
       <html.div style={styles.body}>
-        <html.span style={styles.chip}>{location}</html.span>
+        <html.div style={styles.topRow}>
+          <html.span style={styles.chip}>{location}</html.span>
+          <html.span style={[styles.badge, styles[availability]]}>
+            {AVAILABILITY_LABEL[availability]}
+          </html.span>
+        </html.div>
         <html.span style={styles.title}>{title}</html.span>
         <html.div style={styles.chipRow}>
           {chips.map((chip, i) => (
@@ -105,6 +120,13 @@ const styles = css.create({
     flexGrow: 1,
     minWidth: 0,
   },
+  topRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.x2,
+  },
   title: {
     fontSize: 19,
     fontWeight: '700',
@@ -117,7 +139,6 @@ const styles = css.create({
     gap: spacing.x1,
   },
   chip: {
-    alignSelf: 'flex-start',
     fontSize: 12.5,
     fontWeight: '600',
     color: colors.textMuted,
@@ -128,6 +149,28 @@ const styles = css.create({
     borderRadius: 999,
     paddingBlock: 5,
     paddingInline: 10,
+  },
+  badge: {
+    fontSize: 11.5,
+    fontWeight: '700',
+    letterSpacing: 0.3,
+    textTransform: 'uppercase',
+    borderRadius: 999,
+    paddingBlock: 4,
+    paddingInline: 9,
+    flexShrink: 0,
+  },
+  available: {
+    backgroundColor: '#DCFCE7',
+    color: '#15803D',
+  },
+  filling: {
+    backgroundColor: '#FEF3C7',
+    color: '#B45309',
+  },
+  soldout: {
+    backgroundColor: '#FEE2E2',
+    color: '#B91C1C',
   },
   price: {
     display: 'flex',

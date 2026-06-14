@@ -41,8 +41,10 @@ function BookingDashboard() {
             </html.div>
             <html.div style={styles.rail}>
               <ExperienceBanner
+                variant="stacked"
                 location="Sintra Coast, Portugal"
                 title="Coastal Caves Kayak Tour"
+                availability="filling"
                 chips={[
                   i18n.t('shell.banner.duration'),
                   i18n.t('shell.banner.group'),
