@@ -9,6 +9,8 @@ export type ExperienceBannerProps = {
   priceSub: string;
   rating: string;
   mediaLabel?: string;
+  ctaLabel?: string;
+  onView?: () => void;
   variant?: 'row' | 'stacked';
   'data-testid'?: string;
 };
@@ -21,6 +23,8 @@ export function ExperienceBanner({
   priceSub,
   rating,
   mediaLabel = 'img · experience',
+  ctaLabel = 'View',
+  onView,
   variant = 'row',
   'data-testid': dataTestId,
 }: ExperienceBannerProps) {
@@ -40,6 +44,9 @@ export function ExperienceBanner({
             </html.span>
           ))}
         </html.div>
+        <html.button style={styles.cta} onClick={onView}>
+          {ctaLabel}
+        </html.button>
       </html.div>
       <html.div style={[styles.price, stacked && styles.priceStacked]}>
         <html.span style={styles.priceBig}>{price}</html.span>
@@ -157,5 +164,25 @@ const styles = css.create({
     fontSize: 13,
     color: colors.actionPrimary,
     marginBlockStart: spacing.x1,
+  },
+  cta: {
+    alignSelf: 'flex-start',
+    marginBlockStart: spacing.x1,
+    borderWidth: 0,
+    borderStyle: 'none',
+    paddingInline: spacing.x3,
+    paddingBlock: spacing.x2,
+    borderRadius: radius.md,
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.textOnAction,
+    cursor: 'pointer',
+    transitionProperty: 'background-color',
+    transitionDuration: '200ms',
+    backgroundColor: {
+      default: colors.actionPrimary,
+      ':hover': colors.actionPrimaryHover,
+      ':active': colors.actionPrimaryHover,
+    },
   },
 });
