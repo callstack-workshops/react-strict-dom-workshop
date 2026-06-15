@@ -5,12 +5,11 @@ import { LocalizationProvider } from '@core/i18n/provider';
 import { ThemeProvider, ThemeBoundary } from '@core/providers/theme';
 import { colors, spacing } from '@ui/tokens/tokens.css';
 import { useLocalization } from '@core/i18n/provider';
-import { ExperienceBanner } from '@ui/components';
+import { DeparturesList, ExperienceBanner } from '@ui/components';
 import { DocumentTheme } from './_components/document-theme';
 import { Sidebar } from './_components/sidebar';
 import { Topbar } from './_components/topbar';
 import { HelpPanel } from './_components/help-panel';
-import { DeparturesList } from './_components/departures-list';
 import { BookingScreen } from '@screen/booking';
 
 export default function Index() {
