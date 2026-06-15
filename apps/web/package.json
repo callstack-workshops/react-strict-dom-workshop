@@ -1,26 +1,39 @@
 {
-  "name": "web",
-  "version": "0.1.0",
+  "name": "@workshop/web",
+  "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
   "dependencies": {
-    "next": "^15.5.9",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-strict-dom": "^0.0.55"
+    "@core/i18n": "workspace:*",
+    "@core/providers": "workspace:*",
+    "@feature/booking": "workspace:*",
+    "@fontsource/hanken-grotesk": "^5.2.8",
+    "@screen/booking": "workspace:*",
+    "@ui/components": "workspace:*",
+    "@ui/tokens": "workspace:*",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-strict-dom": "0.0.55"
   },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "babel-loader": "^10.1.1",
-    "eslint": "^9",
-    "eslint-config-next": "^15.5.9",
-    "typescript": "^5"
+  "nx": {
+    "tags": [
+      "type:app"
+    ],
+    "targets": {
+      "build": {
+        "options": {
+          "args": [
+            "--webpack"
+          ]
+        }
+      },
+      "dev": {
+        "options": {
+          "args": [
+            "--webpack"
+          ]
+        }
+      }
+    }
   }
 }

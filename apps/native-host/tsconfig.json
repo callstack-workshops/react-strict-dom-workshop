@@ -1,0 +1,25 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "types": ["jest"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules", "**/Pods"],
+  "references": [
+    {
+      "path": "../../packages/ui/components"
+    },
+    {
+      "path": "../../packages/ui/tokens"
+    },
+    {
+      "path": "../../packages/screen/booking"
+    },
+    {
+      "path": "../../packages/core/providers"
+    },
+    {
+      "path": "../../packages/core/i18n"
+    }
+  ]
+}

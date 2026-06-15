@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              { "sourceTag": "type:app", "onlyDependOnLibsWithTags": ["type:screen", "type:feature", "type:ui", "type:core"] },
+              { "sourceTag": "type:screen", "onlyDependOnLibsWithTags": ["type:feature", "type:ui", "type:core"] },
+              { "sourceTag": "type:feature", "onlyDependOnLibsWithTags": ["type:ui", "type:core"] },
+              { "sourceTag": "type:ui", "onlyDependOnLibsWithTags": ["type:ui", "type:core"] },
+              { "sourceTag": "type:core", "onlyDependOnLibsWithTags": ["type:core"] }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    }
+  ]
+}

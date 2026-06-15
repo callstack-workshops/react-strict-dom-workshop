@@ -1,21 +1,17 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
+    "jsx": "preserve",
     "noEmit": true,
+    "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "plugins": [
       {
@@ -23,20 +19,48 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+      "@/*": ["./*"]
+    },
+    "outDir": "dist",
+    "rootDir": "."
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "app/**/*.js",
+    "app/**/*.jsx",
+    "../../apps/web/.next/types/**/*.ts",
+    "../../dist/apps/web/.next/types/**/*.ts",
+    "next-env.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "out-tsc",
+    "dist",
+    "node_modules",
+    "jest.config.ts",
+    "jest.config.cts",
+    "app/**/*.spec.ts",
+    "app/**/*.test.ts",
+    ".next"
+  ],
+  "references": [
+    {
+      "path": "../../packages/feature/booking"
+    },
+    {
+      "path": "../../packages/ui/components"
+    },
+    {
+      "path": "../../packages/screen/booking"
+    },
+    {
+      "path": "../../packages/core/providers"
+    },
+    {
+      "path": "../../packages/core/i18n"
+    },
+    {
+      "path": "../../packages/ui/tokens"
+    }
   ]
 }

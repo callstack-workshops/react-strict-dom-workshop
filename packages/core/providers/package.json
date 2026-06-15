@@ -1,0 +1,27 @@
+{
+  "name": "@core/providers",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./theme": "./src/theme-provider.tsx"
+  },
+  "nx": {
+    "tags": [
+      "type:core"
+    ]
+  },
+  "dependencies": {
+    "@ui/tokens": "workspace:*",
+    "react-native": "0.83.0",
+    "react-strict-dom": "0.0.55",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17"
+  }
+}

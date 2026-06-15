@@ -1,0 +1,20 @@
+{
+  "name": "@ui/tokens",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./tokens.css": "./src/tokens.css.ts",
+    "./themes": "./src/themes.ts"
+  },
+  "nx": {
+    "tags": [
+      "type:ui"
+    ]
+  },
+  "dependencies": {
+    "react-strict-dom": "0.0.55",
+    "tslib": "^2.3.0"
+  }
+}

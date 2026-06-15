@@ -1,0 +1,34 @@
+{
+  "name": "@feature/booking",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@workshop/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "tags": [
+      "type:feature"
+    ]
+  },
+  "dependencies": {
+    "react-strict-dom": "0.0.55",
+    "tslib": "^2.3.0",
+    "@ui/components": "workspace:*",
+    "@ui/tokens": "workspace:*",
+    "react-native": "0.83.0",
+    "@core/i18n": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17"
+  }
+}
