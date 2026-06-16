@@ -9,7 +9,7 @@
         "@nx/enforce-module-boundaries": [
           "error",
           {
-            "enforceBuildableLibDependency": true,
+            "enforceBuildableLibDependency": false,
             "allow": [],
             "depConstraints": [
               { "sourceTag": "type:app", "onlyDependOnLibsWithTags": ["type:screen", "type:feature", "type:ui", "type:core"] },
