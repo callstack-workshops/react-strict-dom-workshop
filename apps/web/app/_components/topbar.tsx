@@ -23,8 +23,9 @@ export function Topbar() {
       </html.button>
       <LocaleSwitcher />
       {/* WORKSHOP-TODO(X2 A2): inspect this toggle. The on/off rides on aria-pressed - it announces on
-          web but is dropped silently on native (RN accessibilityState has no 'pressed' field). Fix: the
-          accessible Toggle primitive that carries its state in the label, shared by navbar and topbar. */}
+          web but is dropped silently on native (RN accessibilityState has no 'pressed' field). Fix: use
+          the shared `Toggle` scaffolded in @ui/components (finish its accessibility first), swapping this
+          html.button for `<Toggle pressed={isDark} onPress={toggleTheme} label="Dark mode" />`. */}
       <html.button onClick={toggleTheme} aria-label="Dark mode" aria-pressed={isDark} style={styles.iconBtn}>
         {isDark ? <IconSun /> : <IconMoon />}
       </html.button>

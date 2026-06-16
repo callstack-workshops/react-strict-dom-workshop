@@ -25,8 +25,9 @@ export function Navbar({ topInset }: { topInset: number }) {
         {/* WORKSHOP-TODO(X2 A2): inspect this toggle. The on/off rides on aria-pressed, which works on
             web (the screen reader says "pressed") but has no native home - RN accessibilityState has no
             'pressed' field, so RSD drops it silently and the dark/light state is never announced on
-            native (only the icon changes). Fix: the accessible Toggle primitive that carries its state
-            in the label ("Dark mode, on" / "Dark mode, off"), shared by the navbar and the topbar. */}
+            native (only the icon changes). Fix: a shared `Toggle` ships scaffolded in @ui/components -
+            finish its accessibility (its own WORKSHOP-TODO), then swap this html.button for
+            `<Toggle pressed={isDark} onPress={toggleTheme} label="Dark mode" style={styles.toggle} />`. */}
         <html.button
           style={styles.toggle}
           onClick={toggleTheme}
