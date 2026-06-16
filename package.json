@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write \"{apps,packages}/**/*.{ts,tsx,js,jsx}\"",
-    "format:check": "prettier --check \"{apps,packages}/**/*.{ts,tsx,js,jsx}\""
+    "format:check": "prettier --check \"{apps,packages}/**/*.{ts,tsx,js,jsx}\"",
+    "x3:flame": "bash scripts/x3-flame.sh"
   },
   "private": true,
   "devDependencies": {
@@ -26,6 +27,7 @@
     "jsonc-eslint-parser": "^2.1.0",
     "nx": "22.7.5",
     "prettier": "~3.6.2",
+    "speedscope": "^1.25.0",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2"
   },
