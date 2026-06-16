@@ -2,7 +2,7 @@ import { css, html } from 'react-strict-dom';
 import { spacing, colors } from '@ui/tokens/tokens.css';
 import { useLocalization } from '@core/i18n/provider';
 import { ThemeBoundary } from '@core/providers/theme';
-import { BookingForm } from '@feature/booking';
+import { StudentTaskSlot } from '@ui/components';
 
 function BookingHeader() {
   const { i18n } = useLocalization();
@@ -20,7 +20,7 @@ export function BookingScreen() {
     <ThemeBoundary>
       <html.div style={styles.screen}>      
         <BookingHeader />
-        <BookingForm onSubmit={(values) => console.log('booked', values)} />
+        <StudentTaskSlot />
       </html.div>
     </ThemeBoundary>
   );
