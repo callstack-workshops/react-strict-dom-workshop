@@ -10,4 +10,4 @@ export { Flag } from './lib/flag.js';
 export { LocaleSwitcher } from './lib/locale-switcher.js';
 export { StudentTaskSlot } from './lib/student-task-slot.js';
 export { ExperienceBanner } from './lib/experience-banner.js';
-export type { ExperienceBannerProps } from './lib/experience-banner.js';
+export type { ExperienceBannerProps, Availability } from './lib/experience-banner.js';
