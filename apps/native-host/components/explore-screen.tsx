@@ -61,7 +61,7 @@ export function ExploreScreen() {
         <html.div style={styles.feed}>
           <html.span style={styles.heading}>Explore experiences</html.span>
           {EXPERIENCES.map((experience, i) => (
-            <ExperienceBanner key={i} variant="stacked" {...experience} />
+            <ExperienceBanner key={i} {...experience} />
           ))}
         </html.div>
       </ThemeBoundary>

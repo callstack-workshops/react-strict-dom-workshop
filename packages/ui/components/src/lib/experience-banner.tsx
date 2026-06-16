@@ -1,6 +1,6 @@
 import { css, html } from 'react-strict-dom';
 import type { Styles } from 'react-strict-dom';
-import { colors, spacing, radius } from '@ui/tokens/tokens.css';
+import { colors, spacing, radius, bp } from '@ui/tokens/tokens.css';
 
 export type CtaStyleOverride = Styles<{
   backgroundColor?: string;
@@ -29,7 +29,6 @@ export type ExperienceBannerProps = {
   ctaLabel?: string;
   ctaStyle?: CtaStyleOverride;
   onView?: () => void;
-  variant?: 'row' | 'stacked';
   'data-testid'?: string;
 };
 
@@ -45,13 +44,13 @@ export function ExperienceBanner({
   ctaLabel = 'View',
   ctaStyle,
   onView,
-  variant = 'row',
   'data-testid': dataTestId,
 }: ExperienceBannerProps) {
-  const stacked = variant === 'stacked';
+  // X1 STRETCH: no `variant` prop. The banner reads the live viewport width
+  // through the @media values in `styles` and re-resolves on web AND native.
   return (
-    <html.div data-testid={dataTestId} style={[styles.banner, stacked && styles.bannerStacked]}>
-      <html.div style={[styles.media, stacked && styles.mediaStacked]}>
+    <html.div data-testid={dataTestId} style={styles.banner}>
+      <html.div style={styles.media}>
         <html.span style={styles.mediaLabel}>{mediaLabel}</html.span>
       </html.div>
       <html.div style={styles.body}>
@@ -70,8 +69,8 @@ export function ExperienceBanner({
           ))}
         </html.div>
       </html.div>
-      <html.div style={[styles.action, stacked && styles.actionStacked]}>
-        <html.div style={[styles.priceBlock, stacked && styles.priceBlockStacked]}>
+      <html.div style={styles.action}>
+        <html.div style={styles.priceBlock}>
           <html.span style={styles.priceBig}>{price}</html.span>
           <html.span style={styles.priceSub}>{priceSub}</html.span>
           <html.span style={styles.priceRating}>{rating}</html.span>
@@ -85,10 +84,11 @@ export function ExperienceBanner({
 }
 
 const styles = css.create({
+  // Narrow (default) renders as a stacked column; at >=480px (bp.wide) it lays out as a row.
   banner: {
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: { default: 'column', [bp.wide]: 'row' },
+    alignItems: { default: 'stretch', [bp.wide]: 'center' },
     gap: spacing.x3,
     padding: spacing.x3,
     backgroundColor: colors.bgCard,
@@ -97,14 +97,10 @@ const styles = css.create({
     borderColor: colors.border,
     borderRadius: radius.xl,
   },
-  bannerStacked: {
-    flexDirection: 'column',
-    alignItems: 'stretch',
-  },
   media: {
     position: 'relative',
-    width: 184,
-    height: 110,
+    width: { default: '100%', [bp.wide]: 184 },
+    height: { default: 150, [bp.wide]: 110 },
     flexShrink: 0,
     borderRadius: radius.lg,
     backgroundColor: colors.bgSurface,
@@ -115,10 +111,6 @@ const styles = css.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-  },
-  mediaStacked: {
-    width: '100%',
-    height: 150,
   },
   mediaLabel: {
     fontFamily: 'monospace',
@@ -186,34 +178,24 @@ const styles = css.create({
   },
   action: {
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-end',
+    flexDirection: { default: 'row', [bp.wide]: 'column' },
+    alignItems: { default: 'center', [bp.wide]: 'flex-end' },
+    justifyContent: { default: 'space-between', [bp.wide]: 'flex-start' },
+    alignSelf: { default: 'stretch', [bp.wide]: 'auto' },
     gap: spacing.x2,
-    paddingInlineStart: spacing.x3,
-    borderLeftWidth: 1,
+    paddingInlineStart: { default: 0, [bp.wide]: spacing.x3 },
+    paddingBlockStart: { default: spacing.x3, [bp.wide]: 0 },
+    borderLeftWidth: { default: 0, [bp.wide]: 1 },
     borderLeftStyle: 'solid',
-    borderColor: colors.border,
-    flexShrink: 0,
-  },
-  actionStacked: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    alignSelf: 'stretch',
-    paddingInlineStart: 0,
-    borderLeftWidth: 0,
-    paddingBlockStart: spacing.x3,
-    borderTopWidth: 1,
+    borderTopWidth: { default: 1, [bp.wide]: 0 },
     borderTopStyle: 'solid',
     borderColor: colors.border,
+    flexShrink: 0,
   },
   priceBlock: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end',
-  },
-  priceBlockStacked: {
-    alignItems: 'flex-start',
+    alignItems: { default: 'flex-start', [bp.wide]: 'flex-end' },
   },
   priceBig: {
     fontSize: 24,

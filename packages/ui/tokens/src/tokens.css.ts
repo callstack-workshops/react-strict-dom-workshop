@@ -43,3 +43,12 @@ export const radius = css.defineVars({
   lg: '12px',
   xl: '16px',
 });
+
+// X1 STRETCH: responsive breakpoints as shared design tokens. css.defineConsts
+// lets a @media string be used as a named conditional key in css.create (deck
+// slide 10). It must live in a tokens .css.ts file: the StyleX web compiler
+// hashes defineConsts/defineVars by module path, so an inline const in a
+// component file fails to compile ("must be bound to a named export").
+export const bp = css.defineConsts({
+  wide: '@media (min-width: 480px)',
+});
