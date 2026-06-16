@@ -13,3 +13,5 @@ export { ExperienceBanner } from './lib/experience-banner.js';
 export type { ExperienceBannerProps } from './lib/experience-banner.js';
 export { DeparturesList } from './lib/departures-list.js';
 export type { DeparturesListProps } from './lib/departures-list.js';
+export { Avatar } from './lib/avatar.js';
+export type { AvatarProps, AvatarTone } from './lib/avatar.js';

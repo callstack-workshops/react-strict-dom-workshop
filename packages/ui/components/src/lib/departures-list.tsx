@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { css, html } from 'react-strict-dom';
 import { useLocalization } from '@core/i18n/provider';
 import { colors, spacing, radius } from '@ui/tokens/tokens.css';
+import { Avatar } from './avatar.js';
 
 type Role = 'marineBiologist' | 'leadGuide' | 'sunsetSpecialist' | 'safetyLead';
 type Spots =
@@ -52,13 +53,6 @@ function demandScore(d: Departure): number {
   return s;
 }
 
-const avatarTones = css.create({
-  teal: { backgroundColor: '#14B8A6' },
-  rose: { backgroundColor: '#FB7185' },
-  green: { backgroundColor: '#34D399' },
-  violet: { backgroundColor: '#A78BFA' },
-});
-
 export type DeparturesListProps = { count?: number };
 
 export function DeparturesList({ count = 12 }: DeparturesListProps) {
@@ -90,7 +84,7 @@ export function DeparturesList({ count = 12 }: DeparturesListProps) {
       <html.div style={styles.listBody}>
         {departures.map((d, i) => (
           <html.div key={i} style={styles.row}>
-            <html.div style={[styles.avatarSm, avatarTones[d.tone]]} />
+            <Avatar tone={d.tone} />
             <html.div style={styles.rowMid}>
               <html.span style={styles.rowGuideName}>{d.guide}</html.span>
               <html.span style={styles.rowGuideRole}>{i18n.t(`shell.role.${d.role}`)}</html.span>
@@ -130,7 +124,6 @@ const styles = css.create({
   chip: { alignSelf: 'flex-start', fontSize: 12.5, fontWeight: 600, color: colors.textMuted, backgroundColor: colors.bgSurface, borderWidth: 1, borderStyle: 'solid', borderColor: colors.border, borderRadius: 999, paddingBlock: 5, paddingInline: 10 },
   listBody: { flexGrow: 1, minHeight: 0 },
   row: { display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: spacing.x3, paddingBlock: 12, paddingInline: spacing.x4, borderBottomWidth: 1, borderBottomStyle: 'solid', borderColor: colors.border },
-  avatarSm: { width: 36, height: 36, borderRadius: 999, flexShrink: 0, alignSelf: 'center' },
   rowMid: { display: 'flex', flexDirection: 'column', flexGrow: 1, minWidth: 0, gap: 2 },
   rowGuideName: { display: 'block', fontSize: 14, fontWeight: 600, color: colors.textPrimary },
   rowGuideRole: { display: 'block', fontSize: 12.5, color: colors.textMuted },
