@@ -11,15 +11,16 @@
   },
   "dependencies": {
     "@core/i18n": "workspace:*",
+    "@core/providers": "workspace:*",
     "@screen/booking": "workspace:*",
     "@ui/components": "workspace:*",
     "@ui/tokens": "workspace:*",
     "react": "19.2.6",
     "react-native": "0.83.0",
+    "react-native-release-profiler": "^0.4.4",
     "react-native-safe-area-context": "5.8.0",
-    "react-strict-dom": "0.0.55",
-    "@core/providers": "workspace:*",
-    "react-native-svg": "15.15.5"
+    "react-native-svg": "15.15.5",
+    "react-strict-dom": "0.0.55"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
