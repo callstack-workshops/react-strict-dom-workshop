@@ -4,62 +4,57 @@ import { colors, spacing, radius } from '@ui/tokens/tokens.css';
 
 type ChangeEventLike = { target: { value: string } };
 
-export function PromoCode() {
+export type PromoCodeProps = {
+  announce?: (message: string) => void;
+};
+
+export function PromoCode({ announce }: PromoCodeProps) {
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
 
+  const showError = (message: string) => {
+    setError(message);
+    if (message) announce?.(message);
+  };
+
   const onCodeChange = (value: string) => {
     setCode(value);
-    setError(value.length > 0 && value.length < 4 ? 'Code must be at least 4 characters.' : '');
+    showError(value.length > 0 && value.length < 4 ? 'Code must be at least 4 characters.' : '');
   };
 
   const apply = () => {
-    setError(code.length < 4 ? 'Code must be at least 4 characters.' : '');
+    showError(code.length < 4 ? 'Code must be at least 4 characters.' : '');
   };
 
   const invalid = error.length > 0;
+  // A7 + N1: native cannot bind label-for, and aria-describedby / aria-invalid are dropped, so the
+  // input's name, its hint, and its validity all have to live in one place: the accessible name.
+  const inputLabel = invalid
+    ? `Promo code, invalid. ${error}`
+    : 'Promo code. Use at least 4 characters.';
 
   return (
     <html.div style={styles.card}>
       <html.h3 style={styles.heading}>Have a promo code?</html.h3>
 
       <html.div style={styles.field}>
-        {/* WORKSHOP-TODO(X2 A7): the label's `for` is in the allowed prop set but is never mapped on
-            native, so the input has no accessibilityLabel and the screen reader announces an unnamed
-            edit field. Fix: put aria-label on the input itself. */}
         <html.label for="promo-code" style={styles.label}>
           Promo code
         </html.label>
         <html.div style={styles.inputRow}>
-          {/* WORKSHOP-TODO(X2 N1): the hint and the invalid state are wired with aria-describedby and
-              aria-invalid. Both are in the accepted prop set (tsc is green, no warning) but neither is
-              mapped on native, so the screen reader never reads the hint or "invalid" on focus, the
-              association is silently dropped (accessibilityHint cannot be expressed through RSD at all).
-              Fix: fold the hint and the error into the input's accessible name (aria-label), since you
-              cannot associate them on native. */}
           <html.input
             id="promo-code"
-            aria-describedby="promo-hint"
-            aria-invalid={invalid}
+            aria-label={inputLabel}
             value={code}
             placeholder="Enter code"
             onChange={(e: ChangeEventLike) => onCodeChange(e.target.value)}
             style={styles.input}
           />
-          {/* WORKSHOP-TODO(X2 A1): this taps (onClick fires) but is a div with no role, so the screen
-              reader reads "Apply" as static text and there is no button activation. Fix: make it an
-              html.button AND add role="button" (html.button alone still gets no native role). */}
-          <html.div onClick={apply} style={styles.apply}>
+          <html.button onClick={apply} role="button" style={styles.apply}>
             Apply
-          </html.div>
+          </html.button>
         </html.div>
-        <html.span id="promo-hint" style={styles.hint}>
-          Use at least 4 characters.
-        </html.span>
-        {/* WORKSHOP-TODO(X2 A4): the error appears in an aria-live region. aria-live maps to
-            accessibilityLiveRegion (Android-only, broken on Fabric) and iOS has no live regions, so on
-            this stack it announces on neither. Fix: announce it yourself
-            (AccessibilityInfo.announceForAccessibility), injected by the native host. */}
+        <html.span style={styles.hint}>Use at least 4 characters.</html.span>
         {error ? (
           <html.div aria-live="polite" style={styles.error}>
             {error}
@@ -129,9 +124,12 @@ const styles = css.create({
     color: colors.textOnAction,
     paddingInline: spacing.x4,
     paddingBlock: spacing.x2,
+    borderWidth: 0,
+    borderStyle: 'none',
     borderRadius: radius.md,
     fontSize: 14,
     fontWeight: '600',
+    fontFamily: 'inherit',
     cursor: 'pointer',
   },
   hint: {

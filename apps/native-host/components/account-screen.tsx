@@ -1,4 +1,4 @@
-import { ScrollView } from 'react-native';
+import { AccessibilityInfo, ScrollView } from 'react-native';
 import { css, html } from 'react-strict-dom';
 import { ThemeBoundary } from '@core/providers/theme';
 import { PromoCode } from '@screen/booking';
@@ -17,7 +17,13 @@ export function AccountScreen() {
               <html.span style={styles.email}>john@example.com</html.span>
             </html.div>
           </html.div>
-          <PromoCode />
+          <PromoCode
+            announce={(message) =>
+              AccessibilityInfo.announceForAccessibilityWithOptions(message, {
+                queue: true,
+              })
+            }
+          />
         </html.div>
       </ThemeBoundary>
     </ScrollView>

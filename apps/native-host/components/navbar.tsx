@@ -1,6 +1,6 @@
 import { css, html } from 'react-strict-dom';
 import { ThemeBoundary, useTheme } from '@core/providers/theme';
-import { LocaleSwitcher } from '@ui/components';
+import { LocaleSwitcher, Toggle } from '@ui/components';
 import {
   colors,
   textPrimaryColor,
@@ -22,20 +22,14 @@ export function Navbar({ topInset }: { topInset: number }) {
         </html.div>
         <html.div style={styles.spacer} />
         <LocaleSwitcher />
-        {/* WORKSHOP-TODO(X2 A2): inspect this toggle. The on/off rides on aria-pressed, which works on
-            web (the screen reader says "pressed") but has no native home - RN accessibilityState has no
-            'pressed' field, so RSD drops it silently and the dark/light state is never announced on
-            native (only the icon changes). Fix: a shared `Toggle` ships scaffolded in @ui/components -
-            finish its accessibility (its own WORKSHOP-TODO), then swap this html.button for
-            `<Toggle pressed={isDark} onPress={toggleTheme} label="Dark mode" style={styles.toggle} />`. */}
-        <html.button
+        <Toggle
+          pressed={isDark}
+          onPress={toggleTheme}
+          label="Dark mode"
           style={styles.toggle}
-          onClick={toggleTheme}
-          aria-label="Dark mode"
-          aria-pressed={isDark}
         >
           <Icon name={isDark ? 'sun' : 'moon'} size={17} color={iconColor} />
-        </html.button>
+        </Toggle>
       </html.div>
     </ThemeBoundary>
   );
@@ -89,16 +83,10 @@ const styles = css.create({
     flexGrow: 1,
   },
   toggle: {
-    display: 'flex',
     marginInlineStart: 10,
     width: 36,
     height: 36,
     borderRadius: 999,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: colors.bgCard,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: colors.border,
   },
 });

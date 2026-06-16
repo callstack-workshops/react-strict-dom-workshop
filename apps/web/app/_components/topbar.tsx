@@ -3,7 +3,7 @@
 import { css, html } from 'react-strict-dom';
 import { useLocalization } from '@core/i18n/provider';
 import { useTheme } from '@core/providers/theme';
-import { LocaleSwitcher } from '@ui/components';
+import { LocaleSwitcher, Toggle } from '@ui/components';
 import { colors, spacing, radius } from '@ui/tokens/tokens.css';
 import { shared } from './shared-styles';
 import { IconSearch, IconSun, IconMoon, IconBell } from './icons';
@@ -22,13 +22,9 @@ export function Topbar() {
         <html.span style={styles.searchText}>{i18n.t('shell.search')}</html.span>
       </html.button>
       <LocaleSwitcher />
-      {/* WORKSHOP-TODO(X2 A2): inspect this toggle. The on/off rides on aria-pressed - it announces on
-          web but is dropped silently on native (RN accessibilityState has no 'pressed' field). Fix: use
-          the shared `Toggle` scaffolded in @ui/components (finish its accessibility first), swapping this
-          html.button for `<Toggle pressed={isDark} onPress={toggleTheme} label="Dark mode" />`. */}
-      <html.button onClick={toggleTheme} aria-label="Dark mode" aria-pressed={isDark} style={styles.iconBtn}>
+      <Toggle pressed={isDark} onPress={toggleTheme} label="Dark mode" style={styles.themeToggle}>
         {isDark ? <IconSun /> : <IconMoon />}
-      </html.button>
+      </Toggle>
       <html.button aria-label="Notifications" style={styles.iconBtn}>
         <IconBell />
       </html.button>
@@ -87,6 +83,13 @@ const styles = css.create({
     backgroundColor: colors.bgSurface,
     color: colors.textPrimary,
     cursor: 'pointer',
+  },
+  themeToggle: {
+    width: 38,
+    height: 38,
+    borderRadius: radius.md,
+    backgroundColor: colors.bgSurface,
+    color: colors.textPrimary,
   },
   topDivider: { width: 1, height: 26, backgroundColor: colors.border, marginInline: spacing.x1 },
 });

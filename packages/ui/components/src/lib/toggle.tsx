@@ -15,19 +15,18 @@ export type ToggleProps = {
   style?: ToggleStyleOverride;
 };
 
-// WORKSHOP-TODO(X2 A2): this primitive renders and takes the right props, but it is NOT accessible on
-// native yet. It rides on aria-pressed (the canonical web toggle signal): that announces "pressed" on
-// web, but has no native home - RN accessibilityState has no 'pressed' field, so RSD drops it and the
-// dark/light state is never announced on native (only the icon changes). Two fixes, then wire it in:
-//   1. add  role="button"                              (html.button alone gets no native role here)
-//   2. carry the state in the NAME, not aria-pressed:  aria-label={`${label}, ${pressed ? 'on' : 'off'}`}
-// Then swap the raw html.button in navbar.tsx and topbar.tsx for <Toggle pressed=... onPress=... label=... />.
+// The accessible primitive: it bakes the native gap into one component, so call sites stay clean.
+// - role="button": html.button alone gets no native role on this build.
+// - aria-pressed: rich toggle semantics on web.
+// - the state is carried in the accessible name ("Dark mode, on" / "off") because aria-pressed has no
+//   native home, this is what actually announces on iOS and Android.
 export function Toggle({ pressed, onPress, label, children, style }: ToggleProps) {
   return (
     <html.button
       onClick={onPress}
+      role="button"
       aria-pressed={pressed}
-      aria-label={label}
+      aria-label={`${label}, ${pressed ? 'on' : 'off'}`}
       style={[styles.root, style]}
     >
       {children}
