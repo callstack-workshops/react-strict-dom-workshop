@@ -1,16 +1,11 @@
-import type { ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import { css, html } from 'react-strict-dom';
-import type { Styles } from 'react-strict-dom';
 import { colors } from '@ui/tokens/tokens.css';
 
-export type ToggleStyleOverride = Styles<{
-  width?: number;
-  height?: number;
-  borderRadius?: number | string;
-  backgroundColor?: string;
-  color?: string;
-  marginInlineStart?: number;
-}>;
+// Accept whatever html.button accepts for `style`, so a call site can pass its existing button style
+// (size, colours, border, layout) without trimming. Toggle's own `root` provides the defaults; the
+// call-site style is merged on top.
+export type ToggleStyleOverride = ComponentProps<typeof html.button>['style'];
 
 export type ToggleProps = {
   pressed: boolean;
